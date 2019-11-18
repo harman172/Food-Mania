@@ -15,22 +15,20 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var ivRestaurant: UIImageView!
     
     @IBOutlet weak var loginStackView: UIStackView!
-    
     @IBOutlet weak var registerOwnerSV: UIStackView!
-    
     @IBOutlet weak var registerUserSV: UIStackView!
     
     @IBOutlet weak var buttonRegister: UIButton!
     
+    @IBOutlet var txtLogin: [UITextField]!
+    @IBOutlet var txtOwner: [UITextField]!
+    @IBOutlet var txtUser: [UITextField]!
     
     let pickerViewData = ["Owner", "Customer"]
     var imagePicker = UIImagePickerController()
     
-    
-    
-    @IBOutlet var txtLogin: [UITextField]!
-    @IBOutlet var txtOwner: [UITextField]!
-    @IBOutlet var txtUser: [UITextField]!
+    var isRegOwner = true
+    var image_data: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +58,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             print("Button capture")
 
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.sourceType = .photoLibrary
 //            imagePicker.allowsEditing = false
 
             present(imagePicker, animated: true, completion: nil)
@@ -71,66 +69,127 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        
-        
-        let image_data = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        image_data = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
 //        print("\(image_data)")
         ivRestaurant.image = image_data
 //        print("*******")
-//        let imageData:Data = image_data.pngData()!
-//        let imageStr = imageData.base64EncodedString()
-//        print("**** \(imageStr)")
+        
         imagePicker.dismiss(animated: true) {
             
         }
-        
-        
-        
     }
-    
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerViewData.count
-    }
+           return 1
+       }
+       
+       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+           return pickerViewData.count
+       }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+           
+           return pickerViewData[row]
+       }
+       
+       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+           
+           if loginStackView.isHidden{
+               if row == 0{
+                   registerOwnerSV.isHidden = false
+                   registerUserSV.isHidden = true
+                   isRegOwner = true
+               }else if row == 1{
+                   registerOwnerSV.isHidden = true
+                   registerUserSV.isHidden = false
+                   isRegOwner = false
+               }
+           }
+       }
+       
+       @IBAction func segmentControl(_ sender: UISegmentedControl) {
+           
+           if sender.selectedSegmentIndex == 0{
+               loginStackView.isHidden = false
+               registerOwnerSV.isHidden = true
+               registerUserSV.isHidden = true
+               buttonRegister.isHidden = true
+           }
+           else if sender.selectedSegmentIndex == 1{
+               loginStackView.isHidden = true
+               registerOwnerSV.isHidden = false
+               registerUserSV.isHidden = true
+               buttonRegister.isHidden = false
+           }
+               
+       }
+       
+       @IBAction func btnRegister(_ sender: UIButton) {
         
-        return pickerViewData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if loginStackView.isHidden{            if row == 0{
-                registerOwnerSV.isHidden = false
-                registerUserSV.isHidden = true
-            }else if row == 1{
-                registerOwnerSV.isHidden = true
-                registerUserSV.isHidden = false
-            }
-        }
-    }
-    
-    @IBAction func segmentControl(_ sender: UISegmentedControl) {
+//        print("**** \(image_data!.toString())")
         
-        if sender.selectedSegmentIndex == 0{
-            loginStackView.isHidden = false
-            registerOwnerSV.isHidden = true
-            registerUserSV.isHidden = true
-            buttonRegister.isHidden = true
-        }
-        else if sender.selectedSegmentIndex == 1{
-            loginStackView.isHidden = true
-            registerOwnerSV.isHidden = false
-            registerUserSV.isHidden = true
-            buttonRegister.isHidden = false
-        }
-        
-    }
+           if isRegOwner{
+               var alreadyExists = false
+               var inputs = [String]()
+               
+               for index in txtOwner.indices{
+                   
+                   inputs.append(txtOwner[index].text!)
+                   
+                   if inputs[index].isEmpty {
+                       okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+                       return
+                   }
+               }
+               
+               
+               inputs.append("\(image_data!)")
+               
+               for index in Restaurant.restaurants.indices{
+                   if Restaurant.restaurants[index].userName == inputs[1]{
+                       alreadyExists = true
+                       break
+                   }
+               }
+               
+               if !alreadyExists{
+                let res = Restaurant(restName: inputs[0], restImage: inputs[4], userName: inputs[1], password: inputs[2], address: inputs[3])
+                       Restaurant.restaurants.append(res)
+                       okAlert(title: "Success!!", message: "Restaurant has been registered successfully.")
+                       print(Restaurant.restaurants)
+                
+                for index in txtOwner.indices{
+                    txtOwner[index].text = ""
+                }
+                ivRestaurant.image = UIImage(systemName: "person")
+                
+                
+               } else{
+                   okAlert(title: "Invalid username", message: "This username is already taken.\n Try another one.")
+               }
+               
+               
+           }
+       }
+       
+       
+       
+       func okAlert(title: String, message: String){
+           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+           
+           alertController.addAction(okAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+   }
+
+   extension UIImage {
+       func toString() -> String? {
+           let data: Data? = self.pngData()
+           return data?.base64EncodedString(options: .endLineWithLineFeed)
+       }
 }
 

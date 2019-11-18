@@ -77,7 +77,7 @@
                                 </subviews>
                             </stackView>
                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzD-gw-Qv1">
-                                <rect key="frame" x="0.0" y="70.5" width="336" height="100"/>
+                                <rect key="frame" x="0.0" y="71" width="336" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="NR4-P7-xZ6">
                                         <variation key="heightClass=compact-widthClass=compact" constant="667"/>
@@ -221,6 +221,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bUl-Ct-swp"/>
+                                </connections>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="gbM-0A-ggV" userLabel="User Stack View">
                                 <rect key="frame" x="22.5" y="252" width="330.5" height="163"/>
