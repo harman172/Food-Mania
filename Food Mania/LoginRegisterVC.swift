@@ -84,34 +84,34 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-           return 1
-       }
-       
-       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-           return pickerViewData.count
-       }
+       return 1
+    }
 
-       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           
-           return pickerViewData[row]
-       }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       return pickerViewData.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
        
-       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       return pickerViewData[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
            
-           if loginStackView.isHidden{
-               if row == 0{
-                   registerOwnerSV.isHidden = false
-                   registerUserSV.isHidden = true
-                   isRegOwner = true
-                   isLoginOwner = true
-               }else if row == 1{
-                   registerOwnerSV.isHidden = true
-                   registerUserSV.isHidden = false
-                   isRegOwner = false
-                   isLoginOwner = false
-               }
+        if loginStackView.isHidden{
+           if row == 0{
+               registerOwnerSV.isHidden = false
+               registerUserSV.isHidden = true
+               isRegOwner = true
+               isLoginOwner = true
+           }else if row == 1{
+               registerOwnerSV.isHidden = true
+               registerUserSV.isHidden = false
+               isRegOwner = false
+               isLoginOwner = false
            }
-       }
+        }
+    }
        
        @IBAction func segmentControl(_ sender: UISegmentedControl) {
            

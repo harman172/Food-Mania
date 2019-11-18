@@ -8,10 +8,15 @@
 
 import UIKit
 
-class AddMenuVC: UIViewController {
+class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    var menuCategories: [String]?
+    
     @IBOutlet var textViews: [UITextField]!
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     var resIndex = -1
+    var menuIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +26,17 @@ class AddMenuVC: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
 
+        
+        menuCategories = ["Veg", "Non veg", "Hot drinks", "Soft drinks", "Snacks", "Asian Food"]
+        if Restaurant.restaurants[resIndex].menu.count == 0{
+            for item in menuCategories!{
+                let menu = Menu(type: item)
+                Restaurant.restaurants[resIndex].menu.append(menu)
+            }
+        }
+        
+        
+       print("----------- \(Restaurant.restaurants[resIndex].menu)")
     }
     
     @objc func viewTapped(){
@@ -29,25 +45,42 @@ class AddMenuVC: UIViewController {
         }
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Restaurant.restaurants[resIndex].menu.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Restaurant.restaurants[resIndex].menu[row].type
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("pickerrrrrrr \(row)")
+        print("\(Restaurant.restaurants[resIndex].menu[row].type)")
+        menuIndex = row
+    }
 
     @IBAction func btnSave(_ sender: UIButton) {
         var sectionExists = false
         
-        let section = textViews[0].text!
-        let name = textViews[1].text!
-        let price = Double(textViews[2].text!) ?? 0.0
-        let desc = textViews[3].text!
+//        let section = textViews[0].text!
+        let name = textViews[0].text!
+        let price = Double(textViews[1].text!) ?? 0.0
+        let desc = textViews[2].text!
         
-        for index in Restaurant.restaurants[resIndex].menu.indices{
-            if Restaurant.restaurants[resIndex].menu[index].type == section{
-                sectionExists = true
-            }
-        }
-        
-        if !sectionExists{
-            let menuSection = Menu(type: section)
-            Restaurant.restaurants[resIndex].menu.append(menuSection)
-        }
+//        for index in Restaurant.restaurants[resIndex].menu.indices{
+//            if Restaurant.restaurants[resIndex].menu[index].type == section{
+//                sectionExists = true
+//            }
+//        }
+//
+//        if !sectionExists{
+//            let menuSection = Menu(type: section)
+//            Restaurant.restaurants[resIndex].menu.append(menuSection)
+//        }
         
        
         
@@ -56,22 +89,26 @@ class AddMenuVC: UIViewController {
 //        print("\(Restaurant.restaurants[resIndex].menu.count)")
 //        var index = Restaurant.restaurants[resIndex].menu.count - 1
         
-        var menuIndex = -1
+//        var menuIndex = -1
         
-        for index in Restaurant.restaurants[resIndex].menu.indices{
-            if Restaurant.restaurants[resIndex].menu[index].type == section{
-                menuIndex = index
-                break
-            }
-            else{
-                menuIndex = Restaurant.restaurants[resIndex].menu.count - 1
-            }
-        }
+//        for index in Restaurant.restaurants[resIndex].menu.indices{
+//            if Restaurant.restaurants[resIndex].menu[index].type == section{
+//                menuIndex = index
+//                break
+//            }
+//            else{
+//                menuIndex = Restaurant.restaurants[resIndex].menu.count - 1
+//            }
+//        }
         
+        print("&&&&& \(menuIndex), \(resIndex)")
         Restaurant.restaurants[resIndex].menu[menuIndex].item.append(items)
         
         print(Restaurant.restaurants[resIndex].menu)
     }
+    
+    
+    
     /*
     // MARK: - Navigation
 
