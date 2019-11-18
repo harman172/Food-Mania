@@ -1,0 +1,85 @@
+//
+//  AddMenuVC.swift
+//  Food Mania
+//
+//  Created by Harmanpreet Kaur on 2019-11-18.
+//  Copyright © 2019 Harmanpreet Kaur. All rights reserved.
+//
+
+import UIKit
+
+class AddMenuVC: UIViewController {
+
+    @IBOutlet var textViews: [UITextField]!
+    var resIndex = -1
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view.addGestureRecognizer(tapGesture)
+
+    }
+    
+    @objc func viewTapped(){
+        for index in textViews.indices{
+            textViews[index].resignFirstResponder()
+        }
+    }
+    
+
+    @IBAction func btnSave(_ sender: UIButton) {
+        var sectionExists = false
+        
+        let section = textViews[0].text!
+        let name = textViews[1].text!
+        let price = Double(textViews[2].text!) ?? 0.0
+        let desc = textViews[3].text!
+        
+        for index in Restaurant.restaurants[resIndex].menu.indices{
+            if Restaurant.restaurants[resIndex].menu[index].type == section{
+                sectionExists = true
+            }
+        }
+        
+        if !sectionExists{
+            let menuSection = Menu(type: section)
+            Restaurant.restaurants[resIndex].menu.append(menuSection)
+        }
+        
+       
+        
+        let items = Items(itemName: name, price: price, description: desc)
+        
+//        print("\(Restaurant.restaurants[resIndex].menu.count)")
+//        var index = Restaurant.restaurants[resIndex].menu.count - 1
+        
+        var menuIndex = -1
+        
+        for index in Restaurant.restaurants[resIndex].menu.indices{
+            if Restaurant.restaurants[resIndex].menu[index].type == section{
+                menuIndex = index
+                break
+            }
+            else{
+                menuIndex = Restaurant.restaurants[resIndex].menu.count - 1
+            }
+        }
+        
+        Restaurant.restaurants[resIndex].menu[menuIndex].item.append(items)
+        
+        print(Restaurant.restaurants[resIndex].menu)
+    }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

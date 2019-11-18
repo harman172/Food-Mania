@@ -16,6 +16,9 @@
 		B53512AA2382738500E33245 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512A92382738500E33245 /* CustomerModel.swift */; };
 		B53512AC2382739800E33245 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512AB2382739800E33245 /* OwnerModel.swift */; };
 		B5FFD075238310EF000F4793 /* RestaurantDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */; };
+		B5FFD0772383155C000F4793 /* RestMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD0762383155C000F4793 /* RestMenuModel.swift */; };
+		B5FFD07923831E3F000F4793 /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD07823831E3F000F4793 /* ItemsModel.swift */; };
+		B5FFD07B2383242D000F4793 /* AddMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD07A2383242D000F4793 /* AddMenuVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		B53512A92382738500E33245 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		B53512AB2382739800E33245 /* OwnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
 		B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsTVC.swift; sourceTree = "<group>"; };
+		B5FFD0762383155C000F4793 /* RestMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMenuModel.swift; sourceTree = "<group>"; };
+		B5FFD07823831E3F000F4793 /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
+		B5FFD07A2383242D000F4793 /* AddMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,8 @@
 			children = (
 				B53512A92382738500E33245 /* CustomerModel.swift */,
 				B53512AB2382739800E33245 /* OwnerModel.swift */,
+				B5FFD0762383155C000F4793 /* RestMenuModel.swift */,
+				B5FFD07823831E3F000F4793 /* ItemsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */,
+				B5FFD07A2383242D000F4793 /* AddMenuVC.swift */,
 			);
 			path = Owner;
 			sourceTree = "<group>";
@@ -167,7 +176,10 @@
 				B5FFD075238310EF000F4793 /* RestaurantDetailsTVC.swift in Sources */,
 				B53512AC2382739800E33245 /* OwnerModel.swift in Sources */,
 				B53512AA2382738500E33245 /* CustomerModel.swift in Sources */,
+				B5FFD07B2383242D000F4793 /* AddMenuVC.swift in Sources */,
 				B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */,
+				B5FFD0772383155C000F4793 /* RestMenuModel.swift in Sources */,
+				B5FFD07923831E3F000F4793 /* ItemsModel.swift in Sources */,
 				B53512942381FA1B00E33245 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

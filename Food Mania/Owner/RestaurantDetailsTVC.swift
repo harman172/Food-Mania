@@ -10,6 +10,10 @@ import UIKit
 
 class RestaurantDetailsTVC: UITableViewController {
 
+    var resUsername: String?
+    var resIndex: Int?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,29 +22,59 @@ class RestaurantDetailsTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        print(Restaurant.restaurants)
+        print("username.....\(resUsername)")
+        for index in Restaurant.restaurants.indices{
+            if Restaurant.restaurants[index].userName == resUsername{
+                resIndex = index
+                break
+            }
+            
+        }
+        print("resIndex....\(resIndex!)")
+        
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return Restaurant.restaurants[resIndex!].menu.count
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Restaurant.restaurants[resIndex!].menu[section].type
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        guard Restaurant.restaurants[resIndex!].menu != nil else{
+            return 0
+        }
+        
+            
+            return Restaurant.restaurants[resIndex!].menu[section].item.count
+        
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+//
+//        // Configure the cell...
+//
+//        return cell
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell"){
+            cell.textLabel?.text = Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].itemName
+            return cell
+        }
+        return UITableViewCell()
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,14 +111,23 @@ class RestaurantDetailsTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let destAddMenu = segue.destination as? AddMenuVC{
+            
+            destAddMenu.resIndex = resIndex!
+        }
+        
     }
-    */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
 }

@@ -1,5 +1,5 @@
 //
-//  OwnerModel.swift
+//  ItemsModel.swift
 //  Food Mania
 //
 //  Created by Harmanpreet Kaur on 2019-11-18.
@@ -8,4 +8,11 @@
 
 import Foundation
 
-
+struct Items {
+    
+    var itemName: String
+    var price: Double
+    var description: String
+    
+    
+}

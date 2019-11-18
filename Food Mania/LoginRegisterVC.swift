@@ -30,10 +30,13 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var isRegOwner = true
     var isLoginOwner = true
     var image_data: UIImage?
+    var Uname: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
         
         pickerView.selectRow(0, inComponent: 0, animated: true)
         
@@ -71,14 +74,12 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         image_data = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+
         
-//        print("\(image_data)")
-//        ivRestaurant.image = image_data
-//        print("*******")
+        ivRestaurant.image = image_data
+        imagePicker.dismiss(animated: true, completion: nil)
         
-        imagePicker.dismiss(animated: true) {
-            
-        }
+        
     }
     
     
@@ -102,12 +103,12 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                    registerOwnerSV.isHidden = false
                    registerUserSV.isHidden = true
                    isRegOwner = true
-                isLoginOwner = true
+                   isLoginOwner = true
                }else if row == 1{
                    registerOwnerSV.isHidden = true
                    registerUserSV.isHidden = false
                    isRegOwner = false
-                isLoginOwner = false
+                   isLoginOwner = false
                }
            }
        }
@@ -131,9 +132,6 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        
        @IBAction func btnRegister(_ sender: UIButton) {
         
-        
-        print("**** \(image_data))")
-        
            if isRegOwner{
                var alreadyExists = false
                var inputs = [String]()
@@ -149,7 +147,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                }
                
                
-               inputs.append("\(image_data!)")
+//               inputs.append("\(image_data!)")
                
                for index in Restaurant.restaurants.indices{
                    if Restaurant.restaurants[index].userName == inputs[1]{
@@ -159,7 +157,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                }
                
                if !alreadyExists{
-                let res = Restaurant(restName: inputs[0], restImage: inputs[4], userName: inputs[1], password: inputs[2], address: inputs[3])
+                let res = Restaurant(restName: inputs[0], restImage: image_data!, userName: inputs[1], password: inputs[2], address: inputs[3])
                        Restaurant.restaurants.append(res)
                        okAlert(title: "Success!!", message: "Restaurant has been registered successfully.")
                        print(Restaurant.restaurants)
@@ -182,18 +180,18 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBAction func btnLogIn(_ sender: UIButton) {
         
         if isLoginOwner{
-            let username = txtLogin[0].text!
+            Uname = txtLogin[0].text!
             let password = txtLogin[1].text!
             var isMatched = true
             
-            guard !username.isEmpty else {
+            guard !Uname!.isEmpty else {
                 okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
                 return
             }
             
             for index in Restaurant.restaurants.indices{
             
-                if Restaurant.restaurants[index].userName == username{
+                if Restaurant.restaurants[index].userName == Uname{
                     
                     if Restaurant.restaurants[index].password == password{
                         isMatched = true
@@ -218,13 +216,27 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-       func okAlert(title: String, message: String){
-           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-           let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-           
-           alertController.addAction(okAction)
-           self.present(alertController, animated: true, completion: nil)
-       }
+
+    
+   func okAlert(title: String, message: String){
+       let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+       let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+       
+       alertController.addAction(okAction)
+       self.present(alertController, animated: true, completion: nil)
+   }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destRestDetails = segue.destination as? RestaurantDetailsTVC{
+            
+            destRestDetails.resUsername = Uname!
+            
+        }
+    }
+    
+    
    }
 
    extension UIImage {
@@ -234,3 +246,14 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        }
 }
 
+struct Restaurant{
+    var restName: String
+    var restImage: UIImage
+    var userName: String
+    var password: String
+    var address: String
+    var menu = [Menu]()
+    
+    static var restaurants = [Restaurant]()
+    
+}

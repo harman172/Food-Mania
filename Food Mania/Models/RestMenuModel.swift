@@ -1,5 +1,5 @@
 //
-//  OwnerModel.swift
+//  RestMenuModel.swift
 //  Food Mania
 //
 //  Created by Harmanpreet Kaur on 2019-11-18.
@@ -9,3 +9,9 @@
 import Foundation
 
 
+struct Menu{
+    var type: String
+//    var username: String
+    
+    var item = [Items]()
+}
