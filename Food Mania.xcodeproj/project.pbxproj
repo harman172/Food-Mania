@@ -15,6 +15,7 @@
 		B535129E2381FA1B00E33245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B535129C2381FA1B00E33245 /* LaunchScreen.storyboard */; };
 		B53512AA2382738500E33245 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512A92382738500E33245 /* CustomerModel.swift */; };
 		B53512AC2382739800E33245 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512AB2382739800E33245 /* OwnerModel.swift */; };
+		B5FFD075238310EF000F4793 /* RestaurantDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B535129F2381FA1B00E33245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53512A92382738500E33245 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		B53512AB2382739800E33245 /* OwnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
+		B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		B53512902381FA1B00E33245 /* Food Mania */ = {
 			isa = PBXGroup;
 			children = (
+				B5FFD073238310CE000F4793 /* Owner */,
 				B53512A82382736400E33245 /* Models */,
 				B53512912381FA1B00E33245 /* AppDelegate.swift */,
 				B53512932381FA1B00E33245 /* SceneDelegate.swift */,
@@ -79,6 +82,14 @@
 				B53512AB2382739800E33245 /* OwnerModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B5FFD073238310CE000F4793 /* Owner */ = {
+			isa = PBXGroup;
+			children = (
+				B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */,
+			);
+			path = Owner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53512962381FA1B00E33245 /* LoginRegisterVC.swift in Sources */,
+				B5FFD075238310EF000F4793 /* RestaurantDetailsTVC.swift in Sources */,
 				B53512AC2382739800E33245 /* OwnerModel.swift in Sources */,
 				B53512AA2382738500E33245 /* CustomerModel.swift in Sources */,
 				B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */,

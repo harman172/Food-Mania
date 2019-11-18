@@ -28,6 +28,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var imagePicker = UIImagePickerController()
     
     var isRegOwner = true
+    var isLoginOwner = true
     var image_data: UIImage?
     
     override func viewDidLoad() {
@@ -72,7 +73,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         image_data = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
 //        print("\(image_data)")
-        ivRestaurant.image = image_data
+//        ivRestaurant.image = image_data
 //        print("*******")
         
         imagePicker.dismiss(animated: true) {
@@ -101,10 +102,12 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                    registerOwnerSV.isHidden = false
                    registerUserSV.isHidden = true
                    isRegOwner = true
+                isLoginOwner = true
                }else if row == 1{
                    registerOwnerSV.isHidden = true
                    registerUserSV.isHidden = false
                    isRegOwner = false
+                isLoginOwner = false
                }
            }
        }
@@ -129,7 +132,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        @IBAction func btnRegister(_ sender: UIButton) {
         
         
-//        print("**** \(image_data!.toString())")
+        print("**** \(image_data))")
         
            if isRegOwner{
                var alreadyExists = false
@@ -165,7 +168,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                     txtOwner[index].text = ""
                 }
                 ivRestaurant.image = UIImage(systemName: "person")
-                
+//                ivRestaurant.image = UIImage(named: inputs[4])
                 
                } else{
                    okAlert(title: "Invalid username", message: "This username is already taken.\n Try another one.")
@@ -176,7 +179,45 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        }
        
        
-       
+    @IBAction func btnLogIn(_ sender: UIButton) {
+        
+        if isLoginOwner{
+            let username = txtLogin[0].text!
+            let password = txtLogin[1].text!
+            var isMatched = true
+            
+            guard !username.isEmpty else {
+                okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+                return
+            }
+            
+            for index in Restaurant.restaurants.indices{
+            
+                if Restaurant.restaurants[index].userName == username{
+                    
+                    if Restaurant.restaurants[index].password == password{
+                        isMatched = true
+                        break
+                    }
+                    else{
+                        isMatched = false
+                    }
+                }
+                else{
+                    isMatched = false
+                    
+                }
+            }
+            
+            if !isMatched{
+                okAlert(title: "Error", message: "Incorrect username/password")
+            }
+            else{
+                print("Go in")
+            }
+        }
+    }
+    
        func okAlert(title: String, message: String){
            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
