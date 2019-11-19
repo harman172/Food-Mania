@@ -27,7 +27,7 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         self.view.addGestureRecognizer(tapGesture)
 
         
-        menuCategories = ["Veg", "Non veg", "Hot drinks", "Soft drinks", "Snacks", "Asian Food"]
+        menuCategories = ["-------", "Veg", "Non veg", "Hot drinks", "Soft drinks", "Snacks", "Asian Food"]
         if Restaurant.restaurants[resIndex].menu.count == 0{
             for item in menuCategories!{
                 let menu = Menu(type: item)
@@ -35,6 +35,7 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
             }
         }
         
+        pickerView.selectRow(0, inComponent: 0, animated: true)
         
        print("----------- \(Restaurant.restaurants[resIndex].menu)")
     }

@@ -23,7 +23,8 @@ class RestaurantDetailsTVC: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         print(Restaurant.restaurants)
         print("username.....\(resUsername)")
@@ -35,6 +36,8 @@ class RestaurantDetailsTVC: UITableViewController {
             
         }
         print("resIndex....\(resIndex!)")
+        
+        
         
     }
 
@@ -72,47 +75,60 @@ class RestaurantDetailsTVC: UITableViewController {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell"){
             cell.textLabel?.text = Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].itemName
-            cell.detailTextLabel?.text = "\(Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].price)"
+            cell.detailTextLabel?.text = "$\(Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].price)"
             return cell
         }
         return UITableViewCell()
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
+            Restaurant.restaurants[resIndex!].menu[indexPath.section].item.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            print("Delete: \(Restaurant.restaurants[resIndex!].menu)")
+        }
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        
+        let itemName = Restaurant.restaurants[resIndex!].menu[fromIndexPath.section].item[fromIndexPath.row].itemName
+        let itemPrice = Restaurant.restaurants[resIndex!].menu[fromIndexPath.section].item[fromIndexPath.row].price
+        let itemDesc = Restaurant.restaurants[resIndex!].menu[fromIndexPath.section].item[fromIndexPath.row].description
+        
+        let movedItem = Items(itemName: itemName, price: itemPrice, description: itemDesc)
+        Restaurant.restaurants[resIndex!].menu[fromIndexPath.section].item.remove(at: fromIndexPath.row)
+        
+        Restaurant.restaurants[resIndex!].menu[to.section].item.insert(movedItem, at: to.row)
+        print("Move: \(Restaurant.restaurants[resIndex!].menu)")
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
 
     
     // MARK: - Navigation

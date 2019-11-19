@@ -216,7 +216,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" spacing="4"/>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-Rg-AqR">
-                                <rect key="frame" x="140" y="490" width="95" height="40"/>
+                                <rect key="frame" x="140" y="480" width="95" height="40"/>
                                 <color key="backgroundColor" red="0.47933851519999998" green="0.15681046330000001" blue="0.1253519169" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SWk-XO-f6c"/>
@@ -292,7 +292,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-lZ-C7R">
-                                <rect key="frame" x="101" y="571" width="173" height="32"/>
+                                <rect key="frame" x="101" y="532" width="173" height="32"/>
                                 <color key="backgroundColor" red="0.64635548857868019" green="0.45460610648084721" blue="0.41733866479030923" alpha="0.34350920376712329" colorSpace="custom" customColorSpace="displayP3"/>
                                 <segments>
                                     <segment title="Log in"/>
@@ -317,13 +317,13 @@
                             </constraint>
                             <constraint firstItem="dzz-Rg-AqR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QIv-Pi-Cj9"/>
                             <constraint firstItem="nl2-vT-F0E" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Qvf-6d-e5J"/>
-                            <constraint firstItem="dzz-Rg-AqR" firstAttribute="top" secondItem="nl2-vT-F0E" secondAttribute="bottom" constant="30" id="cF8-8k-Lz1"/>
+                            <constraint firstItem="dzz-Rg-AqR" firstAttribute="top" secondItem="nl2-vT-F0E" secondAttribute="bottom" constant="20" id="cF8-8k-Lz1"/>
                             <constraint firstItem="YzD-gw-Qv1" firstAttribute="top" secondItem="yP2-NO-yLP" secondAttribute="bottom" constant="10" id="jaE-GR-4Ek">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint firstItem="gbM-0A-ggV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jb0-pn-isy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KE7-lZ-C7R" secondAttribute="bottom" constant="30" id="q9v-r8-Tcy">
-                                <variation key="heightClass=regular-widthClass=compact" constant="65"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="55"/>
                             </constraint>
                             <constraint firstItem="KE7-lZ-C7R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tDh-Lq-ukK"/>
                         </constraints>
@@ -395,13 +395,16 @@
                             <outlet property="delegate" destination="uLc-LJ-Vfu" id="hE6-KT-GMX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Agl-8P-ote">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="jos-ZT-2Fh">
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="LYO-La-Ajq"/>
+                        <barButtonItem title="Add Item" id="jos-ZT-2Fh">
                             <connections>
                                 <segue destination="6PA-4l-O7d" kind="show" identifier="addNewSegue" id="Q3d-xD-ucx"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="Agl-8P-ote"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTo-b5-IzK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -432,7 +435,7 @@
                                             <constraint firstAttribute="width" constant="250" id="yvC-ee-F79"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter description..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Obj-Bq-kM9">
                                         <rect key="frame" x="0.0" y="114" width="250" height="34"/>
@@ -461,7 +464,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHG-ey-XqK">
-                                <rect key="frame" x="0.0" y="100" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9Ba-pf-55T"/>
                                     <constraint firstAttribute="width" constant="375" id="Mah-U0-y8A"/>
@@ -541,11 +544,15 @@
         <!--Navigation Controller-->
         <scene sceneID="XcW-cR-uSu">
             <objects>
-                <navigationController id="2gJ-d5-NeH" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="2gJ-d5-NeH" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nSi-DZ-Jwh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k6T-fu-zV5">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ljh-2B-su2"/>
                     </connections>
@@ -557,6 +564,5 @@
     </scenes>
     <resources>
         <image name="person" catalog="system" width="64" height="58"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>
