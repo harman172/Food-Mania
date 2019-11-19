@@ -39,6 +39,10 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginRegisterVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+               
+               NotificationCenter.default.addObserver(self, selector: #selector(LoginRegisterVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         
         
         pickerView.selectRow(0, inComponent: 0, animated: true)
@@ -330,6 +334,22 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             destRestDetails.resUsername = Uname!
             
         }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        if self.view.frame.origin.y == 0{
+            self.view.frame.origin.y -= (keyboardFrame.height - 100)
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y = 0
+        }
+        
     }
     
     
