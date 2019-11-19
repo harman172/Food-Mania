@@ -120,6 +120,7 @@ class RestaurantDetailsTVC: UITableViewController {
         
         Restaurant.restaurants[resIndex!].menu[to.section].item.insert(movedItem, at: to.row)
         print("Move: \(Restaurant.restaurants[resIndex!].menu)")
+        print("hello")
     }
     
 
