@@ -13,6 +13,8 @@ class RestaurantDetailsTVC: UITableViewController {
     var resUsername: String?
     var resIndex: Int?
     
+    var curSectionIndex = -1
+    var curRowIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +72,7 @@ class RestaurantDetailsTVC: UITableViewController {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell"){
             cell.textLabel?.text = Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].itemName
+            cell.detailTextLabel?.text = "\(Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].price)"
             return cell
         }
         return UITableViewCell()
@@ -122,8 +125,32 @@ class RestaurantDetailsTVC: UITableViewController {
         if let destAddMenu = segue.destination as? AddMenuVC{
             
             destAddMenu.resIndex = resIndex!
+            
+        } else if let destEditMenu = segue.destination as? EditMenuVC{
+            
+            destEditMenu.delegateRestDetails = self
+            
+            if let tableCell = sender as? UITableViewCell{
+                if let index = tableView.indexPath(for: tableCell){
+                    destEditMenu.itemName = Restaurant.restaurants[resIndex!].menu[index.section].item[index.row].itemName
+                    destEditMenu.price = "\(Restaurant.restaurants[resIndex!].menu[index.section].item[index.row].price)"
+                    destEditMenu.desc = Restaurant.restaurants[resIndex!].menu[index.section].item[index.row].description
+                    
+                    curSectionIndex = index.section
+                    curRowIndex = index.row
+                }
+            }
         }
         
+    }
+    
+    func updateItem(name: String, price: String, desc: String){
+        Restaurant.restaurants[resIndex!].menu[curSectionIndex].item[curRowIndex].itemName = name
+        Restaurant.restaurants[resIndex!].menu[curSectionIndex].item[curRowIndex].price = Double(price)!
+        Restaurant.restaurants[resIndex!].menu[curSectionIndex].item[curRowIndex].description = desc
+        
+        let indexPath = IndexPath(row: curRowIndex, section: curSectionIndex)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     override func viewWillAppear(_ animated: Bool) {

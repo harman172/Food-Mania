@@ -64,7 +64,7 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     }
 
     @IBAction func btnSave(_ sender: UIButton) {
-        var sectionExists = false
+//        var sectionExists = false
         
 //        let section = textViews[0].text!
         let name = textViews[0].text!
@@ -105,6 +105,8 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         Restaurant.restaurants[resIndex].menu[menuIndex].item.append(items)
         
         print(Restaurant.restaurants[resIndex].menu)
+        
+        _ = navigationController?.popViewController(animated: true)
     }
     
     
