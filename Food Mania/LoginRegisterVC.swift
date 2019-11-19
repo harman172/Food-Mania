@@ -73,6 +73,13 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
 
+    @IBAction func userNameTextdidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func PasswordTextDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
