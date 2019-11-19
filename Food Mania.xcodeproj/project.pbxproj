@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3D55242384806B00A76632 /* foodMania.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3D55232384806B00A76632 /* foodMania.png */; };
 		B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512912381FA1B00E33245 /* AppDelegate.swift */; };
 		B53512942381FA1B00E33245 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512932381FA1B00E33245 /* SceneDelegate.swift */; };
 		B53512962381FA1B00E33245 /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512952381FA1B00E33245 /* LoginRegisterVC.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B3D55232384806B00A76632 /* foodMania.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodMania.png; sourceTree = "<group>"; };
 		B535128E2381FA1B00E33245 /* Food Mania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Mania.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53512912381FA1B00E33245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B53512932381FA1B00E33245 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B3D55222384805500A76632 /* logo */ = {
+			isa = PBXGroup;
+			children = (
+				9B3D55232384806B00A76632 /* foodMania.png */,
+			);
+			path = logo;
+			sourceTree = "<group>";
+		};
 		B53512852381FA1B00E33245 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		B53512902381FA1B00E33245 /* Food Mania */ = {
 			isa = PBXGroup;
 			children = (
+				9B3D55222384805500A76632 /* logo */,
 				B5FFD073238310CE000F4793 /* Owner */,
 				B53512A82382736400E33245 /* Models */,
 				B53512912381FA1B00E33245 /* AppDelegate.swift */,
@@ -164,6 +175,7 @@
 			files = (
 				B535129E2381FA1B00E33245 /* LaunchScreen.storyboard in Resources */,
 				B535129B2381FA1B00E33245 /* Assets.xcassets in Resources */,
+				9B3D55242384806B00A76632 /* foodMania.png in Resources */,
 				B53512992381FA1B00E33245 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
