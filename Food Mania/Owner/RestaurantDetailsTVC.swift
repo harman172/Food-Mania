@@ -13,9 +13,12 @@ class RestaurantDetailsTVC: UITableViewController {
     var resUsername: String?
     var resIndex: Int?
     
+  
+   
     var curSectionIndex = -1
     var curRowIndex = -1
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,16 +32,17 @@ class RestaurantDetailsTVC: UITableViewController {
         
         print(Restaurant.restaurants)
         print("username.....\(resUsername)")
+//        welcomeLabel?.text = "\(Restaurant.restaurants[)"
         for index in Restaurant.restaurants.indices{
             if Restaurant.restaurants[index].userName == resUsername{
                 resIndex = index
                 break
             }
-            
+//            welcomeLabel?.text = "Welcome \(Restaurant.restaurants[index].userName)"
         }
         print("resIndex....\(resIndex!)")
         
-        
+       
         
     }
 
@@ -77,6 +81,7 @@ class RestaurantDetailsTVC: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell"){
             cell.textLabel?.text = Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].itemName
             cell.detailTextLabel?.text = "$\(Restaurant.restaurants[resIndex!].menu[indexPath.section].item[indexPath.row].price)"
+            
             return cell
         }
         return UITableViewCell()
