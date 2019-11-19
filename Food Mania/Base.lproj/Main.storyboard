@@ -318,7 +318,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BSM-v8-vjl"/>
-                                    <segue destination="KOg-Nc-Zd9" kind="show" id="de0-O9-ffp"/>
+                                    <segue destination="sgc-ca-VPz" kind="show" id="mGH-np-rza"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -386,7 +386,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4u-dL-f1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="466"/>
+            <point key="canvasLocation" x="1815" y="873"/>
+        </scene>
+        <!--customer-->
+        <scene sceneID="RNN-AY-eKF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Customer" storyboardName="customer" id="sgc-ca-VPz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="VVG-Lf-dQ1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="453-7N-MKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1461" y="183"/>
         </scene>
         <!--Restaurant DetailsTVC-->
         <scene sceneID="2Wm-sp-kUz">
