@@ -81,6 +81,21 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         sender.resignFirstResponder()
     }
     
+    @IBAction func restaurantTextDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBAction func regUserNameTextDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func regPaswordTextDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func addressTextDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         image_data = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
