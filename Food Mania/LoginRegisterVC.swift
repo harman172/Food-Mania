@@ -34,7 +34,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var isLoginOwner = true
     var image_data: UIImage?
     var Uname: String?
-    
+    var name: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
