@@ -286,21 +286,33 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="restaurantTextDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="nwH-bv-kpl"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email ID..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AwL-JB-ZXV">
                                                 <rect key="frame" x="0.0" y="43" width="180" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="regUserNameTextDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="znN-VE-7uo"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ILH-se-1nN">
                                                 <rect key="frame" x="0.0" y="86" width="180" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="regPaswordTextDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="6Oo-uB-RXp"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IsH-PF-raA">
                                                 <rect key="frame" x="0.0" y="129" width="180" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="addressTextDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qZj-vk-3ri"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -449,7 +461,6 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Logout" id="Q7P-SM-XmO"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LYO-La-Ajq"/>
                         <barButtonItem title="Add Item" id="jos-ZT-2Fh">
                             <connections>
