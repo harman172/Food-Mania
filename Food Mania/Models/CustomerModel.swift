@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct Customer{
+    var name: String
+    var emailID: String
+    var username: String
+    var password: String
+    
+    static var customers = [Customer]()
+}

@@ -24,6 +24,9 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet var txtOwner: [UITextField]!
     @IBOutlet var txtUser: [UITextField]!
     
+    @IBOutlet weak var loginOwner: UIButton!
+    @IBOutlet weak var loginUser: UIButton!
+    
     let pickerViewData = ["Owner", "Customer"]
     var imagePicker = UIImagePickerController()
     
@@ -110,71 +113,113 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                isRegOwner = false
                isLoginOwner = false
            }
+        } else{
+            if row == 0{
+                loginOwner.isHidden = false
+                loginUser.isHidden = true
+            } else{
+                loginUser.isHidden = false
+                loginOwner.isHidden = true
+            }
         }
     }
        
-       @IBAction func segmentControl(_ sender: UISegmentedControl) {
-           
-           if sender.selectedSegmentIndex == 0{
-               loginStackView.isHidden = false
-               registerOwnerSV.isHidden = true
-               registerUserSV.isHidden = true
-               buttonRegister.isHidden = true
-           }
-           else if sender.selectedSegmentIndex == 1{
-               loginStackView.isHidden = true
-               registerOwnerSV.isHidden = false
-               registerUserSV.isHidden = true
-               buttonRegister.isHidden = false
-           }
-               
+    @IBAction func segmentControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+           loginStackView.isHidden = false
+           registerOwnerSV.isHidden = true
+           registerUserSV.isHidden = true
+           buttonRegister.isHidden = true
        }
-       
-       @IBAction func btnRegister(_ sender: UIButton) {
+       else if sender.selectedSegmentIndex == 1{
+           loginStackView.isHidden = true
+           registerOwnerSV.isHidden = false
+           registerUserSV.isHidden = true
+           buttonRegister.isHidden = false
+            loginUser.isHidden = true
+       }
         
-           if isRegOwner{
-               var alreadyExists = false
-               var inputs = [String]()
+    }
+    
+    @IBAction func btnRegister(_ sender: UIButton) {
+        if isRegOwner{
+           var alreadyExists = false
+           var inputs = [String]()
+           
+           for index in txtOwner.indices{
                
-               for index in txtOwner.indices{
-                   
-                   inputs.append(txtOwner[index].text!)
-                   
-                   if inputs[index].isEmpty {
-                       okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
-                       return
-                   }
+               inputs.append(txtOwner[index].text!)
+               
+               if inputs[index].isEmpty {
+                   okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+                   return
                }
+           }
                
                
 //               inputs.append("\(image_data!)")
                
-               for index in Restaurant.restaurants.indices{
-                   if Restaurant.restaurants[index].userName == inputs[1]{
-                       alreadyExists = true
-                       break
-                   }
+           for index in Restaurant.restaurants.indices{
+               if Restaurant.restaurants[index].userName == inputs[1]{
+                   alreadyExists = true
+                   break
                }
-               
-               if !alreadyExists{
-                let res = Restaurant(restName: inputs[0], restImage: image_data!, userName: inputs[1], password: inputs[2], address: inputs[3])
-                       Restaurant.restaurants.append(res)
-                       okAlert(title: "Success!!", message: "Restaurant has been registered successfully.")
-                       print(Restaurant.restaurants)
-                
-                for index in txtOwner.indices{
-                    txtOwner[index].text = ""
-                }
-                ivRestaurant.image = UIImage(systemName: "person")
+           }
+           
+           if !alreadyExists{
+            let res = Restaurant(restName: inputs[0], restImage: image_data!, userName: inputs[1], password: inputs[2], address: inputs[3])
+                   Restaurant.restaurants.append(res)
+                   okAlert(title: "Success!!", message: "Restaurant has been registered successfully.")
+                   print(Restaurant.restaurants)
+            
+            for index in txtOwner.indices{
+                txtOwner[index].text = ""
+            }
+            ivRestaurant.image = UIImage(systemName: "person")
 //                ivRestaurant.image = UIImage(named: inputs[4])
                 
-               } else{
-                   okAlert(title: "Invalid username", message: "This username is already taken.\n Try another one.")
-               }
-               
-               
+           } else{
+               okAlert(title: "Invalid username", message: "This username is already taken.\n Try another one.")
            }
-       }
+        }
+        else{
+            
+            var inputs = [String]()
+            var alreadyExists = false
+            
+            for index in txtUser.indices{
+                inputs.append(txtUser[index].text!)
+                
+                if inputs[index].isEmpty {
+                    okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+                    return
+                }
+            }
+            
+            for index in Customer.customers.indices{
+                if Customer.customers[index].username == inputs[2]{
+                    alreadyExists = true
+                    break
+                }
+            }
+            
+            if !alreadyExists{
+                let customer = Customer(name: inputs[0], emailID: inputs[1], username: inputs[2], password: inputs[3])
+                Customer.customers.append(customer)
+                okAlert(title: "Success", message: "\(inputs[0]) is a new customer.")
+                  
+                print(Customer.customers)
+                
+                for index in txtUser.indices{
+                    txtUser[index].text = ""
+                }
+                    
+           } else{
+               okAlert(title: "Invalid username", message: "This username is already taken.\n Try another one.")
+           }
+            
+        }
+   }
        
        
     @IBAction func btnLogIn(_ sender: UIButton) {
@@ -184,7 +229,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             let password = txtLogin[1].text!
             var isMatched = true
             
-            guard !Uname!.isEmpty else {
+            guard !Uname!.isEmpty && !password.isEmpty else {
                 okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
                 return
             }
@@ -210,8 +255,37 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             if !isMatched{
                 okAlert(title: "Error", message: "Incorrect username/password")
             }
-            else{
-                print("Go in")
+        }
+        else{
+            Uname = txtLogin[0].text!
+            let password = txtLogin[1].text!
+            var isMatched = true
+            
+            guard !Uname!.isEmpty && !password.isEmpty else {
+                okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+                return
+            }
+            
+            for index in Customer.customers.indices{
+            
+                if Customer.customers[index].username == Uname{
+                    
+                    if Customer.customers[index].password == password{
+                        isMatched = true
+                        break
+                    }
+                    else{
+                        isMatched = false
+                    }
+                }
+                else{
+                    isMatched = false
+                    
+                }
+            }
+            
+            if !isMatched{
+                okAlert(title: "Error", message: "Incorrect username/password")
             }
         }
     }
@@ -230,7 +304,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destRestDetails = segue.destination as? RestaurantDetailsTVC{
-            
+            print(Uname!)
             destRestDetails.resUsername = Uname!
             
         }
@@ -239,12 +313,12 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
    }
 
-   extension UIImage {
-       func toString() -> String? {
-           let data: Data? = self.pngData()
-           return data?.base64EncodedString(options: .endLineWithLineFeed)
-       }
-}
+//   extension UIImage {
+//       func toString() -> String? {
+//           let data: Data? = self.pngData()
+//           return data?.base64EncodedString(options: .endLineWithLineFeed)
+//       }
+//}
 
 struct Restaurant{
     var restName: String
