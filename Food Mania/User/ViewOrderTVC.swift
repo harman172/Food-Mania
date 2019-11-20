@@ -10,6 +10,10 @@ import UIKit
 
 class ViewOrderTVC: UITableViewController {
 
+    
+    @IBOutlet weak var lblTotal: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,17 @@ class ViewOrderTVC: UITableViewController {
         
         let nib = UINib(nibName: "CartCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "order cell")
+        
+        var total = 0.0
+        for index in Customer.customers[Customer.curCustomerIndex].cartItems.indices{
+            
+            let price = Customer.customers[Customer.curCustomerIndex].cartItems[index].price * Double(Customer.customers[Customer.curCustomerIndex].cartItems[index].quantity)
+            
+            total += price
+        }
+        
+        lblTotal.title = "Total: $\(total)"
+
     }
 
     // MARK: - Table view data source

@@ -10,9 +10,13 @@ import UIKit
 
 class ItemDetailsVC: UIViewController {
 
-    var itemName: String?
-    var price: Double?
-    var desc: String?
+//    var itemName: String?
+//    var price: Double?
+//    var desc: String?
+//    weak var delegateResDetails: ResDetailsTVC?
+    var section: Int?
+    var row: Int?
+    var resIndex: Int?
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
@@ -24,9 +28,11 @@ class ItemDetailsVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        lblName.text = itemName
-        lblPrice.text = "\(price ?? 0.0)"
-        lblDesc.text = desc
+        lblName.text = Restaurant.restaurants[resIndex!].menu[section!].item[row!].itemName
+        lblPrice.text = "\(Restaurant.restaurants[resIndex!].menu[section!].item[row!].price)"
+        lblDesc.text = Restaurant.restaurants[resIndex!].menu[section!].item[row!].description
+        
+        self.navigationItem.title = Restaurant.restaurants[resIndex!].menu[section!].item[row!].itemName
     }
     
     @IBAction func btnIncrement(_ sender: UIButton) {
@@ -38,6 +44,7 @@ class ItemDetailsVC: UIViewController {
 //        } else{
             lblQuantity.text = "\(value!)"
 //        }
+        Restaurant.restaurants[resIndex!].menu[section!].item[row!].quantity = value!
     }
     
     @IBAction func btnDecrement(_ sender: UIButton) {
@@ -50,6 +57,7 @@ class ItemDetailsVC: UIViewController {
         else{
             value! -= 1
             lblQuantity.text = "\(value!)"
+            Restaurant.restaurants[resIndex!].menu[section!].item[row!].quantity = value!
         }
     }
     

@@ -12,7 +12,8 @@ class ResDetailsTVC: UITableViewController {
 
     
     var resIndex = -1
-    var selectedIndex = [CartItems]()
+    var selectedIndex = [Items]()
+    var quantity = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +65,10 @@ class ResDetailsTVC: UITableViewController {
 //         selectedIndex.append(indexPath.row)
         let name = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].itemName
         let price = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].price
-        let quantity = 1
+        let desc = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].description
+        let qty = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].quantity
         
-        let item = CartItems(itemName: name, price: price, quantity: quantity)
+        let item = Items(itemName: name, price: price, description: desc, quantity: qty)
         
         selectedIndex.append(item)
          print("selected...\(selectedIndex)")
@@ -86,14 +88,55 @@ class ResDetailsTVC: UITableViewController {
          print("Deselected...\(selectedIndex)")
      }
 
+    
     @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
+//        clearsSelectionOnViewWillAppear = true
         
-        Customer.customers[Customer.curCustomerIndex].cartItems = []
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+             for indexPath in selectedIndexPaths {
+                print("*******************")
+                tableView.deselectRow(at: indexPath, animated: true)
+                 tableView.cellForRow(at: indexPath)?.accessoryType = .detailButton
+             }
+        }
+        
+//        Customer.customers[Customer.curCustomerIndex].cartItems = []
+        print("selected....\(selectedIndex)")
+        print("cart.......\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+        var alreadyExists = false
         
         for index in selectedIndex.indices{
-            Customer.customers[Customer.curCustomerIndex].cartItems.append(selectedIndex[index])
+            
+            if !Customer.customers.isEmpty{
+                for cIndex in Customer.customers[Customer.curCustomerIndex].cartItems.indices{
+                    if Customer.customers[Customer.curCustomerIndex].cartItems[cIndex].itemName == selectedIndex[index].itemName{
+                        okAlert(title: "Already in cart", message: "The item you have selected is already in cart.")
+                        alreadyExists = true
+                        break
+                    }
+                    
+                }
+            }
         }
-        print("Cart.....\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+            
+            if !alreadyExists{
+                for index in selectedIndex.indices{
+                Customer.customers[Customer.curCustomerIndex].cartItems.append(selectedIndex[index])
+                }
+            }
+
+        selectedIndex = []
+        print("Cart after adding.....\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+        tableView.reloadData()
+    
+    }
+    
+    func okAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     /*
     // Override to support conditional editing of the table view.
@@ -141,12 +184,25 @@ class ResDetailsTVC: UITableViewController {
         if let destItem = segue.destination as? ItemDetailsVC{
             if let tableCell = sender as? UITableViewCell{
                 if let index = tableView.indexPath(for: tableCell){
-                    destItem.itemName = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].itemName
-                    destItem.price = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].price
-                    destItem.desc = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].description
+//                    destItem.itemName = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].itemName
+//                    destItem.price = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].price
+//                    destItem.desc = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].description
+                    destItem.section = index.section
+                    destItem.row = index.row
+                    destItem.resIndex = resIndex
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+           for indexPath in selectedIndexPaths {
+              print("###################SS")
+              tableView.deselectRow(at: indexPath, animated: true)
+           }
+       }
     }
     
 

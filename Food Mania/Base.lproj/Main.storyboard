@@ -589,6 +589,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="9JY-RG-Gk8"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lblTotal" destination="XkW-2z-m1d" id="2MA-AY-H11"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlG-gH-DUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

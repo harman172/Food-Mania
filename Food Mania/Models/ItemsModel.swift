@@ -13,6 +13,6 @@ struct Items {
     var itemName: String
     var price: Double
     var description: String
-    
+    var quantity = 1
     
 }
