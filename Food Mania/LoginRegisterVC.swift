@@ -129,6 +129,8 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
            
         if loginStackView.isHidden{
+            
+            loginUser.isEnabled = true
             loginUser.isHidden = false
            if row == 0{
                registerOwnerSV.isHidden = false
@@ -143,14 +145,25 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
            }
         } else{
             loginUser.isHidden = false
+            loginUser.isEnabled = true
             if row == 0{
                 print("owner")
+                loginOwner.isEnabled = true
+                loginUser.isEnabled = false
+                
                 loginOwner.isHidden = false
                 loginUser.isHidden = true
+                
+                
             } else if row == 1{
                 print("customer")
+                loginOwner.isEnabled = false
+                loginUser.isEnabled = true
+                
                 loginUser.isHidden = false
                 loginOwner.isHidden = true
+                
+                
             }
         }
     }
@@ -172,6 +185,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     @IBAction func btnRegister(_ sender: UIButton) {
+        
+        if loginUser.isHidden{
+            return
+        }
+        
         print("------Register-------")
         print("\(Restaurant.restaurants)")
         print("\(Customer.customers)")
@@ -258,21 +276,28 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        
     @IBAction func btnLogIn(_ sender: UIButton) {
         
+        
+        if loginOwner.isHidden{
+            return
+        }
+        
         print("------Log in-------")
         print("\(Restaurant.restaurants)")
         print("\(Customer.customers)")
         
 //        if isLoginOwner{
             Uname = txtLogin[0].text!
-            let password = txtLogin[1].text!
-            var isMatched = true
-            
-            guard !Uname!.isEmpty && !password.isEmpty else {
-                okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
-                return
-            }
+        print(Uname)
+        let password = txtLogin[1].text!
+        var isMatched = true
+        
+        guard !Uname!.isEmpty && !password.isEmpty else {
+            okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+            return
+        }
         
         guard !Restaurant.restaurants.isEmpty else {
+            print("---- incorrect owner-----")
             okAlert(title: "Error", message: "Incorrect username/password")
             return
         }
@@ -296,6 +321,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             }
             
             if !isMatched{
+                print("---alert not matched owner-----")
                 okAlert(title: "Error", message: "Incorrect username/password")
             }
             
@@ -311,20 +337,29 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         let password = txtLogin[1].text!
         var isMatched = true
         
+        print("----User login -----")
+        
         print("login user ",Uname, password)
+        print("\(Customer.customers)")
+        
         guard !Uname!.isEmpty && !password.isEmpty else {
             okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
             return
         }
         
         guard !Customer.customers.isEmpty else {
+            print("...empty array....")
             okAlert(title: "Error", message: "Incorrect username/password")
             return
         }
         
+//        for index in Customer.customers.indices{
+//            if Customer.customers[index].username ==
+//        }
+//
         for index in Customer.customers.indices{
         
-            if Customer.customers[index].username == Uname{
+            if Customer.customers[index].username == Uname!{
                 
                 if Customer.customers[index].password == password{
                     isMatched = true
@@ -341,6 +376,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         }
         
         if !isMatched{
+            print("---not matched----")
             okAlert(title: "Error", message: "Incorrect username/password")
         } else{
             print("jaaaaaa oyeeee pagalllll")
