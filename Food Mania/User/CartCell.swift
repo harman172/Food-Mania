@@ -10,6 +10,19 @@ import UIKit
 
 class CartCell: UITableViewCell {
 
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblQuantity: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    
+    
+    func setName(name: String, quantity: Int, price: Double){
+        
+        lblName.text = name
+        lblQuantity.text = "\(quantity)"
+        lblPrice.text = "\(price)"
+    }
+    
+    /*
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +33,7 @@ class CartCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+ */
     
 }

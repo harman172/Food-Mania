@@ -18,6 +18,9 @@ class ViewOrderTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let nib = UINib(nibName: "CartCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "order cell")
     }
 
     // MARK: - Table view data source
@@ -37,13 +40,20 @@ class ViewOrderTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell"){
-            return cell
+        guard !Customer.customers[Customer.curCustomerIndex].cartItems.isEmpty else {
+            return UITableViewCell()
         }
+        
+        let name = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].itemName
+        let quantity = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].quantity
+        let price = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].price
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "order cell") as! CartCell
+        cell.setName(name: name, quantity: quantity, price: price)
+        return cell
 
         // Configure the cell...
 
-        return UITableViewCell()
     }
     
 

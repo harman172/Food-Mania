@@ -584,7 +584,11 @@
                             <outlet property="delegate" destination="Qpj-PZ-do8" id="5Be-Uk-ZGv"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Total: " id="XkW-2z-m1d"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="9JY-RG-Gk8"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlG-gH-DUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

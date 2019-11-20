@@ -88,6 +88,8 @@ class ResDetailsTVC: UITableViewController {
 
     @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
         
+        Customer.customers[Customer.curCustomerIndex].cartItems = []
+        
         for index in selectedIndex.indices{
             Customer.customers[Customer.curCustomerIndex].cartItems.append(selectedIndex[index])
         }
