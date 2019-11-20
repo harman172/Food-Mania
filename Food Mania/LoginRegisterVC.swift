@@ -345,7 +345,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         var isMatched = true
         
         print("----User login -----")
-        
+        /*
         print("login user ",Uname, password)
         print("\(Customer.customers)")
         
@@ -388,6 +388,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         } else{
             print("jaaaaaa oyeeee pagalllll")
         }
+ */
     }
     
     

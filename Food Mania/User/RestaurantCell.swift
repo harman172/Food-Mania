@@ -1,5 +1,5 @@
 //
-//  RestCell.swift
+//  RestaurantCell.swift
 //  Food Mania
 //
 //  Created by Harmanpreet Kaur on 2019-11-19.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RestCell: UICollectionViewCell {
+class RestaurantCell: UICollectionViewCell {
+    
     @IBOutlet weak var resImageView: UIImageView!
     @IBOutlet weak var resName: UILabel!
+    
 }

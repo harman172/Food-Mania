@@ -24,7 +24,7 @@ class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restCell", for: indexPath) as! RestCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "resCell", for: indexPath) as! RestaurantCell
         cell.resImageView.image = Restaurant.restaurants[indexPath.row].restImage
         cell.resName.text = Restaurant.restaurants[indexPath.row].restName
         return cell
