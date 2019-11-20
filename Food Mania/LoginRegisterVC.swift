@@ -345,7 +345,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         var isMatched = true
         
         print("----User login -----")
-        /*
+        
         print("login user ",Uname, password)
         print("\(Customer.customers)")
         
@@ -370,6 +370,8 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                 
                 if Customer.customers[index].password == password{
                     isMatched = true
+                    Customer.curCustomerIndex = index
+                    print("\(Customer.curCustomerIndex)")
                     break
                 }
                 else{
@@ -385,10 +387,8 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         if !isMatched{
             print("---not matched----")
             okAlert(title: "Error", message: "Incorrect username/password")
-        } else{
-            print("jaaaaaa oyeeee pagalllll")
-        }
- */
+        } 
+ 
     }
     
     

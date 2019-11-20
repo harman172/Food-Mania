@@ -439,7 +439,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fks-XZ-lfu">
-                                                    <rect key="frame" x="0.0" y="120" width="373" height="59"/>
+                                                    <rect key="frame" x="0.0" y="120" width="80" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="h3e-eT-EI7"/>
                                                     </constraints>
@@ -451,7 +451,7 @@
                                                     <rect key="frame" x="0.0" y="10" width="373" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="8MN-vQ-LDg"/>
-                                                        <constraint firstAttribute="width" constant="50" id="Ucw-ig-oEi"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Ucw-ig-oEi"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -579,11 +579,17 @@
                                 <rect key="frame" x="16" y="535" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="btnIncrement:" destination="okB-nB-Lic" eventType="touchUpInside" id="VBo-AA-1mu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VD8-AX-SL3">
                                 <rect key="frame" x="79" y="535" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="btnDecrement:" destination="okB-nB-Lic" eventType="touchUpInside" id="8br-LG-W4k"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mD9-TG-jc6">
                                 <rect key="frame" x="16" y="573" width="75" height="21"/>
@@ -592,27 +598,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omX-8g-5rb">
-                                <rect key="frame" x="99" y="573" width="15" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omX-8g-5rb">
+                                <rect key="frame" x="99" y="573" width="35" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgd-GX-Aft">
-                                <rect key="frame" x="252" y="563" width="107" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add to cart"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Abd-SN-cNx"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="okE-Ua-3z6"/>
+                        <barButtonItem title="Add To Cart" id="Xw1-Nh-1Nj">
+                            <connections>
+                                <action selector="btnAddCart:" destination="okB-nB-Lic" id="yw9-NK-J8N"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="mZw-l9-4a7"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lblDesc" destination="trH-fc-lSb" id="HiN-gt-r5a"/>
                         <outlet property="lblName" destination="m7w-8m-fX8" id="B3m-WA-yG2"/>
                         <outlet property="lblPrice" destination="aP8-bz-kq3" id="hKV-81-qzB"/>
+                        <outlet property="lblQuantity" destination="omX-8g-5rb" id="dB2-VW-nmy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQj-VT-RuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

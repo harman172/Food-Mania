@@ -14,5 +14,8 @@ struct Customer{
     var username: String
     var password: String
     
+    var cartItems = [CartItems]()
+    
     static var customers = [Customer]()
+    static var curCustomerIndex = -1
 }

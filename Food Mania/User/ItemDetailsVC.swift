@@ -17,6 +17,7 @@ class ItemDetailsVC: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblQuantity: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,39 @@ class ItemDetailsVC: UIViewController {
         lblDesc.text = desc
     }
     
-
+    @IBAction func btnIncrement(_ sender: UIButton) {
+        var value = Int(lblQuantity.text!)
+        value! += 1
+        
+//        if value! < 0{
+//            lblQuantity.text = "0"
+//        } else{
+            lblQuantity.text = "\(value!)"
+//        }
+    }
+    
+    @IBAction func btnDecrement(_ sender: UIButton) {
+        
+        var value = Int(lblQuantity.text!)
+        if value == 0{
+            lblQuantity.text = "0"
+            
+        }
+        else{
+            value! -= 1
+            lblQuantity.text = "\(value!)"
+        }
+    }
+    
+    @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
+        let item = CartItems(itemName: itemName!, price: price!, quantity: Int(lblQuantity.text!)!)
+        
+        Customer.customers[Customer.curCustomerIndex].cartItems.append(item)
+        
+        print(Customer.customers[Customer.curCustomerIndex].cartItems)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
