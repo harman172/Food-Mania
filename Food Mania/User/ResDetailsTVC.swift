@@ -92,14 +92,24 @@ class ResDetailsTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let destItem = segue.destination as? ItemDetailsVC{
+            if let tableCell = sender as? UITableViewCell{
+                if let index = tableView.indexPath(for: tableCell){
+                    destItem.itemName = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].itemName
+                    destItem.price = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].price
+                    destItem.desc = Restaurant.restaurants[resIndex].menu[index.section].item[index.row].description
+                }
+            }
+        }
     }
-    */
+    
 
 }
