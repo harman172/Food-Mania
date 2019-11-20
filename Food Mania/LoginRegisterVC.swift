@@ -31,10 +31,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var imagePicker = UIImagePickerController()
     
     var isRegOwner = true
-    var isLoginOwner = true
+//    var isLoginOwner = true
     var image_data: UIImage?
     var Uname: String?
     var name: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -66,7 +67,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 
     @IBAction func btnChooseImage(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("Button capture")
+//            print("Button capture")
 
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
@@ -128,22 +129,26 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
            
         if loginStackView.isHidden{
+            loginUser.isHidden = false
            if row == 0{
                registerOwnerSV.isHidden = false
                registerUserSV.isHidden = true
                isRegOwner = true
-               isLoginOwner = true
+//               isLoginOwner = true
            }else if row == 1{
                registerOwnerSV.isHidden = true
                registerUserSV.isHidden = false
                isRegOwner = false
-               isLoginOwner = false
+//               isLoginOwner = false
            }
         } else{
+            loginUser.isHidden = false
             if row == 0{
+                print("owner")
                 loginOwner.isHidden = false
                 loginUser.isHidden = true
-            } else{
+            } else if row == 1{
+                print("customer")
                 loginUser.isHidden = false
                 loginOwner.isHidden = true
             }
@@ -162,12 +167,15 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
            registerOwnerSV.isHidden = false
            registerUserSV.isHidden = true
            buttonRegister.isHidden = false
-            loginUser.isHidden = true
        }
         
     }
     
     @IBAction func btnRegister(_ sender: UIButton) {
+        print("------Register-------")
+        print("\(Restaurant.restaurants)")
+        print("\(Customer.customers)")
+        
         if isRegOwner{
            var alreadyExists = false
            var inputs = [String]()
@@ -250,7 +258,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        
     @IBAction func btnLogIn(_ sender: UIButton) {
         
-        if isLoginOwner{
+        print("------Log in-------")
+        print("\(Restaurant.restaurants)")
+        print("\(Customer.customers)")
+        
+//        if isLoginOwner{
             Uname = txtLogin[0].text!
             let password = txtLogin[1].text!
             var isMatched = true
@@ -259,6 +271,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                 okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
                 return
             }
+        
+        guard !Restaurant.restaurants.isEmpty else {
+            okAlert(title: "Error", message: "Incorrect username/password")
+            return
+        }
             
             for index in Restaurant.restaurants.indices{
             
@@ -281,42 +298,55 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             if !isMatched{
                 okAlert(title: "Error", message: "Incorrect username/password")
             }
+            
+//        }
+//        else{
+           
+//        }
+    }
+    
+    
+    @IBAction func btnLoginUser(_ sender: UIButton) {
+        Uname = txtLogin[0].text!
+        let password = txtLogin[1].text!
+        var isMatched = true
+        
+        print("login user ",Uname, password)
+        guard !Uname!.isEmpty && !password.isEmpty else {
+            okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
+            return
         }
-        else{
-            Uname = txtLogin[0].text!
-            let password = txtLogin[1].text!
-            var isMatched = true
-            
-            guard !Uname!.isEmpty && !password.isEmpty else {
-                okAlert(title: "Empty Fields", message: "None of the fields can be empty.")
-                return
-            }
-            
-            for index in Customer.customers.indices{
-            
-                if Customer.customers[index].username == Uname{
-                    
-                    if Customer.customers[index].password == password{
-                        isMatched = true
-                        break
-                    }
-                    else{
-                        isMatched = false
-                    }
+        
+        guard !Customer.customers.isEmpty else {
+            okAlert(title: "Error", message: "Incorrect username/password")
+            return
+        }
+        
+        for index in Customer.customers.indices{
+        
+            if Customer.customers[index].username == Uname{
+                
+                if Customer.customers[index].password == password{
+                    isMatched = true
+                    break
                 }
                 else{
                     isMatched = false
-                    
                 }
             }
-            
-            if !isMatched{
-                okAlert(title: "Error", message: "Incorrect username/password")
+            else{
+                isMatched = false
+                
             }
+        }
+        
+        if !isMatched{
+            okAlert(title: "Error", message: "Incorrect username/password")
+        } else{
+            print("jaaaaaa oyeeee pagalllll")
         }
     }
     
-
     
    func okAlert(title: String, message: String){
        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
