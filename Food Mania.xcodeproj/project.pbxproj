@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		9B3D55242384806B00A76632 /* foodMania.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3D55232384806B00A76632 /* foodMania.png */; };
 		B50ADC452384C71C009BBC25 /* UserMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC442384C71C009BBC25 /* UserMainVC.swift */; };
-		B50ADC472384C789009BBC25 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC462384C789009BBC25 /* UserVC.swift */; };
-		B50ADC492384DFA5009BBC25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC482384DFA5009BBC25 /* ViewController.swift */; };
 		B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512912381FA1B00E33245 /* AppDelegate.swift */; };
 		B53512942381FA1B00E33245 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512932381FA1B00E33245 /* SceneDelegate.swift */; };
 		B53512962381FA1B00E33245 /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512952381FA1B00E33245 /* LoginRegisterVC.swift */; };
@@ -19,6 +17,7 @@
 		B535129E2381FA1B00E33245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B535129C2381FA1B00E33245 /* LaunchScreen.storyboard */; };
 		B53512AA2382738500E33245 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512A92382738500E33245 /* CustomerModel.swift */; };
 		B53512AC2382739800E33245 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512AB2382739800E33245 /* OwnerModel.swift */; };
+		B5611CEF2384EFA600618059 /* RestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5611CEE2384EFA600618059 /* RestCell.swift */; };
 		B5FFD075238310EF000F4793 /* RestaurantDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */; };
 		B5FFD0772383155C000F4793 /* RestMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD0762383155C000F4793 /* RestMenuModel.swift */; };
 		B5FFD07923831E3F000F4793 /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD07823831E3F000F4793 /* ItemsModel.swift */; };
@@ -29,8 +28,6 @@
 /* Begin PBXFileReference section */
 		9B3D55232384806B00A76632 /* foodMania.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodMania.png; sourceTree = "<group>"; };
 		B50ADC442384C71C009BBC25 /* UserMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainVC.swift; sourceTree = "<group>"; };
-		B50ADC462384C789009BBC25 /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
-		B50ADC482384DFA5009BBC25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B535128E2381FA1B00E33245 /* Food Mania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Mania.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53512912381FA1B00E33245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B53512932381FA1B00E33245 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +38,7 @@
 		B535129F2381FA1B00E33245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53512A92382738500E33245 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		B53512AB2382739800E33245 /* OwnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
+		B5611CEE2384EFA600618059 /* RestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestCell.swift; sourceTree = "<group>"; };
 		B5FFD074238310EF000F4793 /* RestaurantDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsTVC.swift; sourceTree = "<group>"; };
 		B5FFD0762383155C000F4793 /* RestMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMenuModel.swift; sourceTree = "<group>"; };
 		B5FFD07823831E3F000F4793 /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
@@ -71,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				B50ADC442384C71C009BBC25 /* UserMainVC.swift */,
+				B5611CEE2384EFA600618059 /* RestCell.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -105,8 +104,6 @@
 				B535129A2381FA1B00E33245 /* Assets.xcassets */,
 				B535129C2381FA1B00E33245 /* LaunchScreen.storyboard */,
 				B535129F2381FA1B00E33245 /* Info.plist */,
-				B50ADC462384C789009BBC25 /* UserVC.swift */,
-				B50ADC482384DFA5009BBC25 /* ViewController.swift */,
 			);
 			path = "Food Mania";
 			sourceTree = "<group>";
@@ -211,12 +208,11 @@
 				B53512AA2382738500E33245 /* CustomerModel.swift in Sources */,
 				B5FFD07B2383242D000F4793 /* AddMenuVC.swift in Sources */,
 				B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */,
-				B50ADC472384C789009BBC25 /* UserVC.swift in Sources */,
-				B50ADC492384DFA5009BBC25 /* ViewController.swift in Sources */,
 				B5FFD0772383155C000F4793 /* RestMenuModel.swift in Sources */,
 				B5FFD07F23836466000F4793 /* EditMenuVC.swift in Sources */,
 				B5FFD07923831E3F000F4793 /* ItemsModel.swift in Sources */,
 				B53512942381FA1B00E33245 /* SceneDelegate.swift in Sources */,
+				B5611CEF2384EFA600618059 /* RestCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

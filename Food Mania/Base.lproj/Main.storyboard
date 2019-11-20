@@ -416,7 +416,7 @@
         <!--User MainVC-->
         <scene sceneID="BZo-g6-6uY">
             <objects>
-                <viewController id="KOg-Nc-Zd9" customClass="UserMainVC" sceneMemberID="viewController">
+                <viewController id="KOg-Nc-Zd9" customClass="UserMainVC" customModule="Food_Mania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eXa-ZL-bDD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +431,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sZb-Ae-LWk" userLabel="Rest Cell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="restCell" id="sZb-Ae-LWk" userLabel="Rest Cell">
                                         <rect key="frame" x="1" y="0.0" width="373" height="179"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Fvb-ny-N3h">
@@ -480,22 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4u-dL-f1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501.5999999999999" y="638.2308845577212"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="HVf-XC-QCc">
-            <objects>
-                <viewController id="xe3-zz-HQW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n7g-PM-gfg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="jwC-78-B9p"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uEK-4P-mZM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2357" y="817"/>
+            <point key="canvasLocation" x="1481" y="-246"/>
         </scene>
         <!--Restaurant DetailsTVC-->
         <scene sceneID="2Wm-sp-kUz">
@@ -552,7 +537,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTo-b5-IzK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="-265"/>
+            <point key="canvasLocation" x="1481" y="582"/>
         </scene>
         <!--Add MenuVC-->
         <scene sceneID="law-Mw-sZY">
@@ -640,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ia5-BK-Su7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="-562"/>
+            <point key="canvasLocation" x="2361" y="1039"/>
         </scene>
         <!--Edit MenuVC-->
         <scene sceneID="ex2-ag-wuO">
@@ -683,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTU-mc-TBJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="159"/>
+            <point key="canvasLocation" x="2361" y="358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XcW-cR-uSu">

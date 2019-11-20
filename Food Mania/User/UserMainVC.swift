@@ -9,13 +9,7 @@
 import UIKit
 
 class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
     
 
     override func viewDidLoad() {
@@ -24,7 +18,18 @@ class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         // Do any additional setup after loading the view.
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Restaurant.restaurants.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restCell", for: indexPath) as! RestCell
+        cell.resImageView.image = Restaurant.restaurants[indexPath.row].restImage
+        cell.resName.text = Restaurant.restaurants[indexPath.row].restName
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 

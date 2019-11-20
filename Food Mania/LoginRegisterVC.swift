@@ -281,9 +281,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             return
         }
         
+        
         print("------Log in-------")
         print("\(Restaurant.restaurants)")
         print("\(Customer.customers)")
+        
         
 //        if isLoginOwner{
             Uname = txtLogin[0].text!
@@ -333,6 +335,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     
     @IBAction func btnLoginUser(_ sender: UIButton) {
+        
+        if loginUser.isHidden{
+            return
+        }
+        
         Uname = txtLogin[0].text!
         let password = txtLogin[1].text!
         var isMatched = true
