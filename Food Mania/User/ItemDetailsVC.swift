@@ -53,6 +53,7 @@ class ItemDetailsVC: UIViewController {
         }
     }
     
+    /*
     @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
         let item = CartItems(itemName: itemName!, price: price!, quantity: Int(lblQuantity.text!)!)
         
@@ -61,6 +62,7 @@ class ItemDetailsVC: UIViewController {
         print(Customer.customers[Customer.curCustomerIndex].cartItems)
         
     }
+ */
     
     /*
     // MARK: - Navigation

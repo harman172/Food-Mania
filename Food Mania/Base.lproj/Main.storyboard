@@ -507,11 +507,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" textLabel="ASR-V2-o3v" detailTextLabel="LSg-r2-PWf" style="IBUITableViewCellStyleValue1" id="qig-3H-zTj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="menuCell" textLabel="ASR-V2-o3v" detailTextLabel="LSg-r2-PWf" style="IBUITableViewCellStyleValue1" id="qig-3H-zTj">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qig-3H-zTj" id="njC-N0-qCg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ASR-V2-o3v">
@@ -522,7 +522,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LSg-r2-PWf">
-                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="283" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -531,7 +531,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="okB-nB-Lic" kind="show" id="EFy-ch-Mpb"/>
+                                    <segue destination="okB-nB-Lic" kind="show" trigger="accessoryAction" id="n6z-8D-Dql"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -540,7 +540,12 @@
                             <outlet property="delegate" destination="MR6-Uc-iMR" id="GWY-qW-C4p"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9r2-g5-iP2"/>
+                        <barButtonItem title="Add to Cart" id="6WS-cu-7Zo"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="e6D-t2-uVE"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FK-pd-XH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -611,11 +616,6 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="okE-Ua-3z6"/>
-                        <barButtonItem title="Add To Cart" id="Xw1-Nh-1Nj">
-                            <connections>
-                                <action selector="btnAddCart:" destination="okB-nB-Lic" id="yw9-NK-J8N"/>
-                            </connections>
-                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="mZw-l9-4a7"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

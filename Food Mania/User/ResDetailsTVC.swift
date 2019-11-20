@@ -12,6 +12,8 @@ class ResDetailsTVC: UITableViewController {
 
     
     var resIndex = -1
+    var selectedIndex = [CartItems]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,7 @@ class ResDetailsTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 //        self.navigationItem.title =
         
+        self.tableView.allowsMultipleSelection = true
         print("\(resIndex)")
     }
 
@@ -56,6 +59,32 @@ class ResDetailsTVC: UITableViewController {
         return UITableViewCell()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//         selectedIndex.append(indexPath.row)
+        let name = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].itemName
+        let price = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].price
+        let quantity = 1
+        
+        let item = CartItems(itemName: name, price: price, quantity: quantity)
+        
+        selectedIndex.append(item)
+         print("selected...\(selectedIndex)")
+         
+     }
+     
+     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+         tableView.cellForRow(at: indexPath)?.accessoryType = .detailButton
+         
+         for index in selectedIndex.indices{
+            if selectedIndex[index].itemName == Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].itemName{
+                 selectedIndex.remove(at: index)
+                 break
+             }
+         }
+    
+         print("Deselected...\(selectedIndex)")
+     }
 
     /*
     // Override to support conditional editing of the table view.
