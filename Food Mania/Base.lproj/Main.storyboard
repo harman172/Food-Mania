@@ -542,14 +542,53 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="9r2-g5-iP2"/>
-                        <barButtonItem title="Add to Cart" id="6WS-cu-7Zo"/>
+                        <barButtonItem title="Add to Cart" id="6WS-cu-7Zo">
+                            <connections>
+                                <action selector="btnAddCart:" destination="MR6-Uc-iMR" id="EqR-Oh-5ct"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="e6D-t2-uVE"/>
+                    <navigationItem key="navigationItem" id="e6D-t2-uVE">
+                        <barButtonItem key="rightBarButtonItem" title="View Order" id="tQe-LL-Ic8">
+                            <connections>
+                                <segue destination="Qpj-PZ-do8" kind="show" id="7ed-RG-Af9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FK-pd-XH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2270" y="-312"/>
+        </scene>
+        <!--View OrderTVC-->
+        <scene sceneID="3aN-DF-PgU">
+            <objects>
+                <tableViewController id="Qpj-PZ-do8" customClass="ViewOrderTVC" customModule="Food_Mania" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sRA-64-Wgh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DCH-dk-H9a">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DCH-dk-H9a" id="SGl-cA-ekO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qpj-PZ-do8" id="GpV-6Y-dv8"/>
+                            <outlet property="delegate" destination="Qpj-PZ-do8" id="5Be-Uk-ZGv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9JY-RG-Gk8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlG-gH-DUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3142" y="-859"/>
         </scene>
         <!--Item DetailsVC-->
         <scene sceneID="f2I-sA-CBq">
@@ -628,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQj-VT-RuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141.5999999999999" y="-313.49325337331339"/>
+            <point key="canvasLocation" x="3143" y="-160"/>
         </scene>
         <!--Restaurant DetailsTVC-->
         <scene sceneID="2Wm-sp-kUz">

@@ -86,6 +86,13 @@ class ResDetailsTVC: UITableViewController {
          print("Deselected...\(selectedIndex)")
      }
 
+    @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
+        
+        for index in selectedIndex.indices{
+            Customer.customers[Customer.curCustomerIndex].cartItems.append(selectedIndex[index])
+        }
+        print("Cart.....\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

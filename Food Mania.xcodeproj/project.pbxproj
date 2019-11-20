@@ -10,6 +10,9 @@
 		9B3D55242384806B00A76632 /* foodMania.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3D55232384806B00A76632 /* foodMania.png */; };
 		B50ADC452384C71C009BBC25 /* UserMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC442384C71C009BBC25 /* UserMainVC.swift */; };
 		B50BC85F2385BB21005F2EF4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC85E2385BB21005F2EF4 /* CartModel.swift */; };
+		B50BC8612385C80D005F2EF4 /* ViewOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */; };
+		B50BC8642385C8EE005F2EF4 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC8622385C8EE005F2EF4 /* CartCell.swift */; };
+		B50BC8652385C8EE005F2EF4 /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50BC8632385C8EE005F2EF4 /* CartCell.xib */; };
 		B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512912381FA1B00E33245 /* AppDelegate.swift */; };
 		B53512942381FA1B00E33245 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512932381FA1B00E33245 /* SceneDelegate.swift */; };
 		B53512962381FA1B00E33245 /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53512952381FA1B00E33245 /* LoginRegisterVC.swift */; };
@@ -32,6 +35,9 @@
 		9B3D55232384806B00A76632 /* foodMania.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodMania.png; sourceTree = "<group>"; };
 		B50ADC442384C71C009BBC25 /* UserMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainVC.swift; sourceTree = "<group>"; };
 		B50BC85E2385BB21005F2EF4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderTVC.swift; sourceTree = "<group>"; };
+		B50BC8622385C8EE005F2EF4 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		B50BC8632385C8EE005F2EF4 /* CartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
 		B535128E2381FA1B00E33245 /* Food Mania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Mania.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53512912381FA1B00E33245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B53512932381FA1B00E33245 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 				B5611CF22384F7C300618059 /* RestaurantCell.swift */,
 				B5611CF42384FEE400618059 /* ResDetailsTVC.swift */,
 				B5611CF623850B5D00618059 /* ItemDetailsVC.swift */,
+				B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */,
+				B50BC8622385C8EE005F2EF4 /* CartCell.swift */,
+				B50BC8632385C8EE005F2EF4 /* CartCell.xib */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B535129E2381FA1B00E33245 /* LaunchScreen.storyboard in Resources */,
+				B50BC8652385C8EE005F2EF4 /* CartCell.xib in Resources */,
 				B535129B2381FA1B00E33245 /* Assets.xcassets in Resources */,
 				9B3D55242384806B00A76632 /* foodMania.png in Resources */,
 				B53512992381FA1B00E33245 /* Main.storyboard in Resources */,
@@ -211,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B50BC85F2385BB21005F2EF4 /* CartModel.swift in Sources */,
+				B50BC8612385C80D005F2EF4 /* ViewOrderTVC.swift in Sources */,
 				B53512962381FA1B00E33245 /* LoginRegisterVC.swift in Sources */,
 				B5FFD075238310EF000F4793 /* RestaurantDetailsTVC.swift in Sources */,
 				B50ADC452384C71C009BBC25 /* UserMainVC.swift in Sources */,
@@ -220,6 +231,7 @@
 				B5FFD07B2383242D000F4793 /* AddMenuVC.swift in Sources */,
 				B53512922381FA1B00E33245 /* AppDelegate.swift in Sources */,
 				B5611CF723850B5D00618059 /* ItemDetailsVC.swift in Sources */,
+				B50BC8642385C8EE005F2EF4 /* CartCell.swift in Sources */,
 				B5FFD0772383155C000F4793 /* RestMenuModel.swift in Sources */,
 				B5FFD07F23836466000F4793 /* EditMenuVC.swift in Sources */,
 				B5611CF32384F7C300618059 /* RestaurantCell.swift in Sources */,
