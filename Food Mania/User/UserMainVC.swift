@@ -11,7 +11,8 @@ import UIKit
 class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,14 +31,28 @@ class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
-    /*
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        self.performSegue(withIdentifier: "resDetailsSegue", sender: nil)
+//    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let destRestDetails = segue.destination as? ResDetailsTVC{
+            
+            if let cell = sender as? RestaurantCell{
+                if let indexPath = collectionView.indexPath(for: cell){
+                    print(indexPath.row)
+                    destRestDetails.resIndex = indexPath.row
+                }
+            }
+            
+        }
     }
-    */
+    
 
 }
