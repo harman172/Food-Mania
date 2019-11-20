@@ -18,7 +18,7 @@ class ItemDetailsVC: UIViewController {
     var row: Int?
     var resIndex: Int?
     
-    @IBOutlet weak var lblName: UILabel!
+    
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblQuantity: UILabel!
@@ -28,7 +28,7 @@ class ItemDetailsVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        lblName.text = Restaurant.restaurants[resIndex!].menu[section!].item[row!].itemName
+        
         lblPrice.text = "\(Restaurant.restaurants[resIndex!].menu[section!].item[row!].price)"
         lblDesc.text = Restaurant.restaurants[resIndex!].menu[section!].item[row!].description
         
