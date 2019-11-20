@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a customer or owner?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP2-NO-yLP">
-                                <rect key="frame" x="20" y="64" width="229" height="20.5"/>
+                                <rect key="frame" x="20" y="20" width="229" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzD-gw-Qv1">
-                                <rect key="frame" x="0.0" y="94.5" width="336" height="80"/>
+                                <rect key="frame" x="0.0" y="50.5" width="336" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="NR4-P7-xZ6">
                                         <variation key="heightClass=compact-widthClass=compact" constant="667"/>
@@ -422,7 +422,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="loO-5K-btB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pdM-P0-I2h">
                                     <size key="itemSize" width="373" height="179"/>
@@ -711,6 +711,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
+                        <barButtonItem title="Log Out" id="thu-qN-Ao8">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="28g-G5-evb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LYO-La-Ajq"/>
                         <barButtonItem title="Add Item" id="jos-ZT-2Fh">
                             <connections>
@@ -723,7 +728,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTo-b5-IzK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1481" y="582"/>
+            <point key="canvasLocation" x="1558" y="463"/>
         </scene>
         <!--Add MenuVC-->
         <scene sceneID="law-Mw-sZY">
@@ -773,13 +778,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHt-WH-pUZ">
-                                <rect key="frame" x="16" y="64" width="135.5" height="20.5"/>
+                                <rect key="frame" x="16" y="20" width="135.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHG-ey-XqK">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9Ba-pf-55T"/>
                                     <constraint firstAttribute="width" constant="375" id="Mah-U0-y8A"/>
@@ -880,4 +885,7 @@
     <resources>
         <image name="person" catalog="system" width="64" height="58"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="28g-G5-evb"/>
+    </inferredMetricsTieBreakers>
 </document>
