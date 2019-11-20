@@ -170,12 +170,14 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
        
     @IBAction func segmentControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0{
+           pickerView.selectRow(0, inComponent: 0, animated: true)
            loginStackView.isHidden = false
            registerOwnerSV.isHidden = true
            registerUserSV.isHidden = true
            buttonRegister.isHidden = true
        }
        else if sender.selectedSegmentIndex == 1{
+           pickerView.selectRow(0, inComponent: 0, animated: true)
            loginStackView.isHidden = true
            registerOwnerSV.isHidden = false
            registerUserSV.isHidden = true
