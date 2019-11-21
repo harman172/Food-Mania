@@ -47,6 +47,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
         //self.view.backgroundColor?.withAlphaComponent(0.08)
         
+        
         pickerView.selectRow(0, inComponent: 0, animated: true)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))

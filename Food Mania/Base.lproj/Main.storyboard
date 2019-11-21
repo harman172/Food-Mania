@@ -687,7 +687,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="SY9-39-KXM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.99551157599999995" blue="0.98795848450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" textLabel="JX3-Fb-Uti" detailTextLabel="bQn-hL-Apy" style="IBUITableViewCellStyleValue1" id="XLf-uX-mkr">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="43.5"/>
@@ -724,12 +724,14 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="Log Out" id="thu-qN-Ao8">
+                            <color key="tintColor" red="0.52482923569999995" green="0.110232465" blue="0.07848317564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="28g-G5-evb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LYO-La-Ajq"/>
                         <barButtonItem title="Add Item" id="jos-ZT-2Fh">
+                            <color key="tintColor" red="0.52482923569999995" green="0.110232465" blue="0.07848317564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="6PA-4l-O7d" kind="show" identifier="addNewSegue" id="Q3d-xD-ucx"/>
                             </connections>
@@ -801,7 +803,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHt-WH-pUZ">
                                 <rect key="frame" x="16" y="20" width="135.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.52482923569999995" green="0.110232465" blue="0.07848317564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHG-ey-XqK">
@@ -816,7 +818,7 @@
                                 </connections>
                             </pickerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.99551157599999995" blue="0.98795848450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uHt-WH-pUZ" firstAttribute="top" secondItem="lCF-95-Mj9" secondAttribute="top" constant="20" id="92z-VE-iqO"/>
                             <constraint firstItem="FVa-SM-qE5" firstAttribute="centerX" secondItem="fxl-YG-c07" secondAttribute="centerX" id="OU8-Jk-lIH"/>
@@ -847,41 +849,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxD-EX-REz">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxD-EX-REz">
                                 <rect key="frame" x="43" y="80" width="294" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="viewTextFieldEditing:" destination="wN5-Bg-ygm" eventType="editingDidEndOnExit" id="S4X-5y-t9X"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOf-DP-S2m">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOf-DP-S2m">
                                 <rect key="frame" x="43" y="143" width="294" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="priceTextFieldEditing:" destination="wN5-Bg-ygm" eventType="editingDidEndOnExit" id="fPh-rV-uQ6"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dcr-i4-3og">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dcr-i4-3og">
                                 <rect key="frame" x="43" y="247" width="294" height="195"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-EQ-kjE">
-                                <rect key="frame" x="49" y="206" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-EQ-kjE">
+                                <rect key="frame" x="49" y="206" width="112" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.99551157599999995" blue="0.98795848450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.94391268809999995" blue="0.83334415299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qxD-EX-REz" firstAttribute="leading" secondItem="Yqa-L4-tMT" secondAttribute="leading" constant="43" id="0Hl-hH-8SF"/>
+                            <constraint firstItem="eOf-DP-S2m" firstAttribute="leading" secondItem="Yqa-L4-tMT" secondAttribute="leading" constant="43" id="AXC-mL-YXU"/>
+                            <constraint firstItem="eOf-DP-S2m" firstAttribute="top" secondItem="qxD-EX-REz" secondAttribute="bottom" constant="29" id="P6e-rr-vgy"/>
+                            <constraint firstItem="PGh-EQ-kjE" firstAttribute="top" secondItem="eOf-DP-S2m" secondAttribute="bottom" constant="29" id="QHL-DV-1QD"/>
+                            <constraint firstItem="Yqa-L4-tMT" firstAttribute="trailing" secondItem="qxD-EX-REz" secondAttribute="trailing" constant="38" id="ReV-5V-GoK"/>
+                            <constraint firstItem="qxD-EX-REz" firstAttribute="top" secondItem="Yqa-L4-tMT" secondAttribute="top" constant="80" id="SCH-fz-cbm"/>
+                            <constraint firstItem="Dcr-i4-3og" firstAttribute="top" secondItem="PGh-EQ-kjE" secondAttribute="bottom" constant="17" id="gdz-fB-RP9"/>
+                            <constraint firstItem="Yqa-L4-tMT" firstAttribute="trailing" secondItem="eOf-DP-S2m" secondAttribute="trailing" constant="38" id="ljz-H6-XXt"/>
+                            <constraint firstItem="Dcr-i4-3og" firstAttribute="leading" secondItem="Yqa-L4-tMT" secondAttribute="leading" constant="43" id="pKP-M1-Ii7"/>
+                            <constraint firstItem="Yqa-L4-tMT" firstAttribute="trailing" secondItem="PGh-EQ-kjE" secondAttribute="trailing" constant="214" id="uaC-7x-fwc"/>
+                            <constraint firstItem="PGh-EQ-kjE" firstAttribute="leading" secondItem="Yqa-L4-tMT" secondAttribute="leading" constant="49" id="wLq-gm-xpK"/>
+                            <constraint firstItem="Yqa-L4-tMT" firstAttribute="trailing" secondItem="Dcr-i4-3og" secondAttribute="trailing" constant="38" id="xL5-gs-Of0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yqa-L4-tMT"/>
                     </view>
                     <navigationItem key="navigationItem" id="E5V-6V-r8Y"/>
@@ -902,10 +915,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nSi-DZ-Jwh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.94391268809999995" blue="0.83334415299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.52482923569999995" green="0.110232465" blue="0.07848317564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k6T-fu-zV5">
                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.94391268809999995" blue="0.83334415299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="leu-qD-Sue" kind="relationship" relationship="rootViewController" id="CSS-P4-8ll"/>
@@ -981,6 +999,7 @@
         <image name="welcome_img.jpg" width="820" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SLI-M5-N3h"/>
+        <segue reference="28g-G5-evb"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.52482923569999995" green="0.110232465" blue="0.07848317564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
