@@ -10,6 +10,8 @@ import UIKit
 
 class WelcomeVC: UIViewController {
 
+    @IBOutlet var welcome: UILabel!
+    @IBOutlet var foodmania: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,9 @@ class WelcomeVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         //navigationController?.hidesBarsOnTap = true
         self.navigationController?.setToolbarHidden(true, animated: false)
+        
+       
+        
     
     }
     

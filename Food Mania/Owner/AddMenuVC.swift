@@ -23,11 +23,13 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
 
         // Do any additional setup after loading the view.
         
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
 
         
-        menuCategories = ["-------", "Veg", "Non veg", "Hot drinks", "Soft drinks", "Snacks", "Asian Food"]
+        menuCategories = ["Veg", "Non veg", "Hot drinks", "Soft drinks", "Snacks", "Asian Food"]
         if Restaurant.restaurants[resIndex].menu.count == 0{
             for item in menuCategories!{
                 let menu = Menu(type: item)
@@ -37,7 +39,7 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         
         pickerView.selectRow(0, inComponent: 0, animated: true)
         
-       print("----------- \(Restaurant.restaurants[resIndex].menu)")
+       
     }
     
     @IBAction func itemViewTextEditing(_ sender: UITextField) {
@@ -119,6 +121,9 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         print(Restaurant.restaurants[resIndex].menu)
         
         _ = navigationController?.popViewController(animated: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(false, animated: false)
     }
     
     
