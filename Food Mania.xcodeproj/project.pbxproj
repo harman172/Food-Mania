@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9B080C2623860E2400930343 /* logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9B080C2523860E2400930343 /* logo.jpeg */; };
+		9B080C282386114400930343 /* launchboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B080C272386114400930343 /* launchboard.png */; };
+		9B080C2A2386159900930343 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B080C292386159900930343 /* WelcomeVC.swift */; };
+		9B080C2E23861A5600930343 /* welcome_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B080C2D23861A5600930343 /* welcome_img.jpg */; };
 		B50ADC452384C71C009BBC25 /* UserMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC442384C71C009BBC25 /* UserMainVC.swift */; };
 		B50BC85F2385BB21005F2EF4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC85E2385BB21005F2EF4 /* CartModel.swift */; };
 		B50BC8612385C80D005F2EF4 /* ViewOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		9B080C2523860E2400930343 /* logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpeg; sourceTree = "<group>"; };
+		9B080C272386114400930343 /* launchboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchboard.png; sourceTree = "<group>"; };
+		9B080C292386159900930343 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		9B080C2D23861A5600930343 /* welcome_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = welcome_img.jpg; sourceTree = "<group>"; };
 		B50ADC442384C71C009BBC25 /* UserMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainVC.swift; sourceTree = "<group>"; };
 		B50BC85E2385BB21005F2EF4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderTVC.swift; sourceTree = "<group>"; };
@@ -72,7 +78,9 @@
 		9B3D55222384805500A76632 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9B080C2D23861A5600930343 /* welcome_img.jpg */,
 				9B080C2523860E2400930343 /* logo.jpeg */,
+				9B080C272386114400930343 /* launchboard.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 				B535129A2381FA1B00E33245 /* Assets.xcassets */,
 				B535129C2381FA1B00E33245 /* LaunchScreen.storyboard */,
 				B535129F2381FA1B00E33245 /* Info.plist */,
+				9B080C292386159900930343 /* WelcomeVC.swift */,
 			);
 			path = "Food Mania";
 			sourceTree = "<group>";
@@ -206,7 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B535129E2381FA1B00E33245 /* LaunchScreen.storyboard in Resources */,
+				9B080C282386114400930343 /* launchboard.png in Resources */,
 				B50BC8652385C8EE005F2EF4 /* CartCell.xib in Resources */,
+				9B080C2E23861A5600930343 /* welcome_img.jpg in Resources */,
 				B535129B2381FA1B00E33245 /* Assets.xcassets in Resources */,
 				9B080C2623860E2400930343 /* logo.jpeg in Resources */,
 				B53512992381FA1B00E33245 /* Main.storyboard in Resources */,
@@ -235,6 +246,7 @@
 				B5FFD0772383155C000F4793 /* RestMenuModel.swift in Sources */,
 				B5FFD07F23836466000F4793 /* EditMenuVC.swift in Sources */,
 				B5611CF32384F7C300618059 /* RestaurantCell.swift in Sources */,
+				9B080C2A2386159900930343 /* WelcomeVC.swift in Sources */,
 				B5FFD07923831E3F000F4793 /* ItemsModel.swift in Sources */,
 				B53512942381FA1B00E33245 /* SceneDelegate.swift in Sources */,
 			);
