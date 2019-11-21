@@ -116,7 +116,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
-                                                    <action selector="addressTextDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qZj-vk-3ri"/>
+                                                    <action selector="addressTextDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="Gm0-JA-ZNk"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -429,7 +429,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="loO-5K-btB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="578"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pdM-P0-I2h">
                                     <size key="itemSize" width="373" height="179"/>
@@ -548,6 +548,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
+                        <barButtonItem title="Log Out" id="aYW-rW-igZ">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="SLI-M5-N3h"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="9r2-g5-iP2"/>
                         <barButtonItem title="Add to Cart" id="6WS-cu-7Zo">
                             <connections>
@@ -954,7 +959,7 @@
         <image name="welcome_img.jpg" width="820" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rdD-VN-EHt"/>
-        <segue reference="28g-G5-evb"/>
+        <segue reference="yr1-72-pfX"/>
+        <segue reference="SLI-M5-N3h"/>
     </inferredMetricsTieBreakers>
 </document>
