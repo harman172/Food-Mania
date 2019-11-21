@@ -21,6 +21,15 @@ class WelcomeVC: UIViewController {
         //navigationController?.hidesBarsOnTap = true
         self.navigationController?.setToolbarHidden(true, animated: false)
         
+        welcome.frame = CGRect(x: 10, y: 10, width: 211, height: 72)
+        foodmania.frame = CGRect(x: 20, y: 20, width: 211, height: 72)
+       
+        UIView.animate(withDuration: 3) {
+             self.welcome.frame = CGRect(x: 16, y: 50, width: 211, height: 72)
+        }
+        UIView.animate(withDuration: 3) {
+             self.foodmania.frame = CGRect(x: 103, y: 100, width: 211, height: 72)
+        }
        
         
     
