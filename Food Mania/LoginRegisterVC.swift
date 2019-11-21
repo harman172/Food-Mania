@@ -41,15 +41,17 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         // Do any additional setup after loading the view.
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginRegisterVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-               
-               NotificationCenter.default.addObserver(self, selector: #selector(LoginRegisterVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginRegisterVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
+        //self.view.backgroundColor?.withAlphaComponent(0.08)
         
         pickerView.selectRow(0, inComponent: 0, animated: true)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
+        
 
     }
     

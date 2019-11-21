@@ -11,6 +11,8 @@
 		9B080C282386114400930343 /* launchboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B080C272386114400930343 /* launchboard.png */; };
 		9B080C2A2386159900930343 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B080C292386159900930343 /* WelcomeVC.swift */; };
 		9B080C2E23861A5600930343 /* welcome_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B080C2D23861A5600930343 /* welcome_img.jpg */; };
+		9B19F1C42386239500BF2DC9 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B19F1C32386239400BF2DC9 /* background.jpg */; };
+		9B19F1C6238624B800BF2DC9 /* background_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B19F1C5238624B800BF2DC9 /* background_image.jpg */; };
 		B50ADC452384C71C009BBC25 /* UserMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC442384C71C009BBC25 /* UserMainVC.swift */; };
 		B50BC85F2385BB21005F2EF4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC85E2385BB21005F2EF4 /* CartModel.swift */; };
 		B50BC8612385C80D005F2EF4 /* ViewOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */; };
@@ -39,6 +41,8 @@
 		9B080C272386114400930343 /* launchboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchboard.png; sourceTree = "<group>"; };
 		9B080C292386159900930343 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		9B080C2D23861A5600930343 /* welcome_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = welcome_img.jpg; sourceTree = "<group>"; };
+		9B19F1C32386239400BF2DC9 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		9B19F1C5238624B800BF2DC9 /* background_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_image.jpg; sourceTree = "<group>"; };
 		B50ADC442384C71C009BBC25 /* UserMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainVC.swift; sourceTree = "<group>"; };
 		B50BC85E2385BB21005F2EF4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderTVC.swift; sourceTree = "<group>"; };
@@ -78,8 +82,9 @@
 		9B3D55222384805500A76632 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9B19F1C5238624B800BF2DC9 /* background_image.jpg */,
+				9B19F1C32386239400BF2DC9 /* background.jpg */,
 				9B080C2D23861A5600930343 /* welcome_img.jpg */,
-				9B080C2523860E2400930343 /* logo.jpeg */,
 				9B080C272386114400930343 /* launchboard.png */,
 			);
 			path = images;
@@ -130,6 +135,7 @@
 				B535129C2381FA1B00E33245 /* LaunchScreen.storyboard */,
 				B535129F2381FA1B00E33245 /* Info.plist */,
 				9B080C292386159900930343 /* WelcomeVC.swift */,
+				9B080C2523860E2400930343 /* logo.jpeg */,
 			);
 			path = "Food Mania";
 			sourceTree = "<group>";
@@ -217,8 +223,10 @@
 				B535129E2381FA1B00E33245 /* LaunchScreen.storyboard in Resources */,
 				9B080C282386114400930343 /* launchboard.png in Resources */,
 				B50BC8652385C8EE005F2EF4 /* CartCell.xib in Resources */,
+				9B19F1C6238624B800BF2DC9 /* background_image.jpg in Resources */,
 				9B080C2E23861A5600930343 /* welcome_img.jpg in Resources */,
 				B535129B2381FA1B00E33245 /* Assets.xcassets in Resources */,
+				9B19F1C42386239500BF2DC9 /* background.jpg in Resources */,
 				9B080C2623860E2400930343 /* logo.jpeg in Resources */,
 				B53512992381FA1B00E33245 /* Main.storyboard in Resources */,
 			);
