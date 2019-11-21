@@ -40,6 +40,17 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
        print("----------- \(Restaurant.restaurants[resIndex].menu)")
     }
     
+    @IBAction func itemViewTextEditing(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func priceViewTextEditing(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func desViewTextEditing(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
     @objc func viewTapped(){
         for index in textViews.indices{
             textViews[index].resignFirstResponder()

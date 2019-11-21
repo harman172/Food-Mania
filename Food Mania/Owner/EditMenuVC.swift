@@ -35,8 +35,16 @@ class EditMenuVC: UIViewController {
         delegateRestDetails?.updateItem(name: txtName.text!, price: txtPrice.text!, desc: txtDesc.text!)
     }
 
-    /*
-    // MARK: - Navigation
+    @IBAction func viewTextFieldEditing(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    
+     @IBAction func priceTextFieldEditing(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+     /*
+     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
