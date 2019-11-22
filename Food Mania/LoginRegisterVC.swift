@@ -70,11 +70,11 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
 
     @IBAction func btnChooseImage(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-//            print("Button capture")
+
 
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
-//            imagePicker.allowsEditing = false
+
 
             present(imagePicker, animated: true, completion: nil)
         }
@@ -242,7 +242,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             let res = Restaurant(restName: inputs[0], restImage: image_data!, userName: inputs[1], password: inputs[2], address: inputs[3])
                    Restaurant.restaurants.append(res)
                    okAlert(title: "Success!!", message: "Restaurant has been registered successfully.")
-                   print(Restaurant.restaurants)
+                  
             
             for index in txtOwner.indices{
                 txtOwner[index].text = ""
@@ -280,7 +280,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                 Customer.customers.append(customer)
                 okAlert(title: "Success", message: "\(inputs[0]) is a new customer.")
                   
-                print(Customer.customers)
+               
                 
                 for index in txtUser.indices{
                     txtUser[index].text = ""
@@ -411,7 +411,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destRestDetails = segue.destination as? RestaurantDetailsTVC{
-            print(Uname!)
+           
             destRestDetails.resUsername = Uname!
             
         }
@@ -444,12 +444,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
    }
 
-//   extension UIImage {
-//       func toString() -> String? {
-//           let data: Data? = self.pngData()
-//           return data?.base64EncodedString(options: .endLineWithLineFeed)
-//       }
-//}
+
 
 struct Restaurant{
     var restName: String

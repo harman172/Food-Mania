@@ -19,7 +19,7 @@ class CartCell: UITableViewCell {
         
         lblName.text = name
         lblQuantity.text = "\(quantity)"
-        lblPrice.text = "\(price)"
+        lblPrice.text = "$:\(price)"
     }
     
     /*

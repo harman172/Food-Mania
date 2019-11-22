@@ -28,23 +28,13 @@ class RestaurantDetailsTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
        
-        
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationController?.navigationBar.text = true
-        
-        print(Restaurant.restaurants)
-        print("username.....\(resUsername)")
-//        welcomeLabel?.text = "\(Restaurant.restaurants[)"
         for index in Restaurant.restaurants.indices{
             if Restaurant.restaurants[index].userName == resUsername{
                 resIndex = index
                 break
             }
-//            welcomeLabel?.text = "Welcome \(Restaurant.restaurants[index].userName)"
+
         }
-        print("resIndex....\(resIndex!)")
-        
-       
         
     }
 
@@ -106,11 +96,9 @@ class RestaurantDetailsTVC: UITableViewController {
             
             Restaurant.restaurants[resIndex!].menu[indexPath.section].item.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            print("Delete: \(Restaurant.restaurants[resIndex!].menu)")
+           
         }
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
+
     }
     
 
@@ -126,8 +114,7 @@ class RestaurantDetailsTVC: UITableViewController {
         Restaurant.restaurants[resIndex!].menu[fromIndexPath.section].item.remove(at: fromIndexPath.row)
         
         Restaurant.restaurants[resIndex!].menu[to.section].item.insert(movedItem, at: to.row)
-        print("Move: \(Restaurant.restaurants[resIndex!].menu)")
-        print("hello")
+       
     }
     
 

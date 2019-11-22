@@ -26,7 +26,7 @@ class ResDetailsTVC: UITableViewController {
 //        self.navigationItem.title =
         
         self.tableView.allowsMultipleSelection = true
-        print("\(resIndex)")
+       
     }
 
     // MARK: - Table view data source
@@ -71,7 +71,7 @@ class ResDetailsTVC: UITableViewController {
         let item = Items(itemName: name, price: price, description: desc, quantity: qty)
         
         selectedIndex.append(item)
-         print("selected...\(selectedIndex)")
+        
          
      }
      
@@ -85,24 +85,23 @@ class ResDetailsTVC: UITableViewController {
              }
          }
     
-         print("Deselected...\(selectedIndex)")
+        
      }
 
     
     @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
-//        clearsSelectionOnViewWillAppear = true
+
         
         if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
              for indexPath in selectedIndexPaths {
-                print("*******************")
+              
                 tableView.deselectRow(at: indexPath, animated: true)
                  tableView.cellForRow(at: indexPath)?.accessoryType = .detailButton
              }
         }
         
-//        Customer.customers[Customer.curCustomerIndex].cartItems = []
-        print("selected....\(selectedIndex)")
-        print("cart.......\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+
+        
         var alreadyExists = false
         
         for index in selectedIndex.indices{
@@ -126,7 +125,7 @@ class ResDetailsTVC: UITableViewController {
             }
 
         selectedIndex = []
-        print("Cart after adding.....\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+        
         tableView.reloadData()
     
     }
@@ -199,7 +198,7 @@ class ResDetailsTVC: UITableViewController {
         tableView.reloadData()
         if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
            for indexPath in selectedIndexPaths {
-              print("###################SS")
+             
               tableView.deselectRow(at: indexPath, animated: true)
            }
        }

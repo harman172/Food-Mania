@@ -10,10 +10,7 @@ import UIKit
 
 class ItemDetailsVC: UIViewController {
 
-//    var itemName: String?
-//    var price: Double?
-//    var desc: String?
-//    weak var delegateResDetails: ResDetailsTVC?
+
     var section: Int?
     var row: Int?
     var resIndex: Int?
@@ -39,11 +36,9 @@ class ItemDetailsVC: UIViewController {
         var value = Int(lblQuantity.text!)
         value! += 1
         
-//        if value! < 0{
-//            lblQuantity.text = "0"
-//        } else{
+
             lblQuantity.text = "\(value!)"
-//        }
+
         Restaurant.restaurants[resIndex!].menu[section!].item[row!].quantity = value!
     }
     
@@ -61,16 +56,7 @@ class ItemDetailsVC: UIViewController {
         }
     }
     
-    /*
-    @IBAction func btnAddCart(_ sender: UIBarButtonItem) {
-        let item = CartItems(itemName: itemName!, price: price!, quantity: Int(lblQuantity.text!)!)
-        
-        Customer.customers[Customer.curCustomerIndex].cartItems.append(item)
-        
-        print(Customer.customers[Customer.curCustomerIndex].cartItems)
-        
-    }
- */
+   
     
     /*
     // MARK: - Navigation

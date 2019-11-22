@@ -248,7 +248,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah0-Dm-Z75">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="29"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                        <color key="backgroundColor" red="0.52750086780000005" green="0.1170683131" blue="0.083012066780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="qz5-vp-dKA"/>
                                                         </constraints>
@@ -429,7 +429,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="loO-5K-btB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="578"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <color key="backgroundColor" red="0.98363949990481492" green="1" blue="0.98322847785246048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pdM-P0-I2h">
                                     <size key="itemSize" width="373" height="179"/>
@@ -455,7 +455,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xi-x3-Z7t">
-                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="179"/>
+                                                    <rect key="frame" x="0.0" y="10" width="373" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="8MN-vQ-LDg"/>
                                                         <constraint firstAttribute="width" constant="100" id="Ucw-ig-oEi"/>
@@ -1011,7 +1011,7 @@
         <image name="welcome_img.jpg" width="820" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xI2-KX-zsZ"/>
+        <segue reference="yr1-72-pfX"/>
         <segue reference="SLI-M5-N3h"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.52482923569999995" green="0.110232465" blue="0.07848317564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

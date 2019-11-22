@@ -46,7 +46,7 @@ class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             if let cell = sender as? RestaurantCell{
                 if let indexPath = collectionView.indexPath(for: cell){
-                    print(indexPath.row)
+                   
                     destRestDetails.resIndex = indexPath.row
                 }
             }
