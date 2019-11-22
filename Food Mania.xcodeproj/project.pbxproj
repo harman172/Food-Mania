@@ -13,6 +13,7 @@
 		9B080C2E23861A5600930343 /* welcome_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B080C2D23861A5600930343 /* welcome_img.jpg */; };
 		9B19F1C42386239500BF2DC9 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B19F1C32386239400BF2DC9 /* background.jpg */; };
 		9B19F1C6238624B800BF2DC9 /* background_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B19F1C5238624B800BF2DC9 /* background_image.jpg */; };
+		9B97DAC3238862C90076F973 /* happykids.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97DAC2238862C90076F973 /* happykids.mp3 */; };
 		B50ADC452384C71C009BBC25 /* UserMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50ADC442384C71C009BBC25 /* UserMainVC.swift */; };
 		B50BC85F2385BB21005F2EF4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC85E2385BB21005F2EF4 /* CartModel.swift */; };
 		B50BC8612385C80D005F2EF4 /* ViewOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */; };
@@ -43,6 +44,7 @@
 		9B080C2D23861A5600930343 /* welcome_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = welcome_img.jpg; sourceTree = "<group>"; };
 		9B19F1C32386239400BF2DC9 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		9B19F1C5238624B800BF2DC9 /* background_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_image.jpg; sourceTree = "<group>"; };
+		9B97DAC2238862C90076F973 /* happykids.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happykids.mp3; sourceTree = "<group>"; };
 		B50ADC442384C71C009BBC25 /* UserMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainVC.swift; sourceTree = "<group>"; };
 		B50BC85E2385BB21005F2EF4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		B50BC8602385C80D005F2EF4 /* ViewOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderTVC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		9B97DABD23885F620076F973 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				9B97DAC2238862C90076F973 /* happykids.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		B50ADC432384C704009BBC25 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		B53512902381FA1B00E33245 /* Food Mania */ = {
 			isa = PBXGroup;
 			children = (
+				9B97DABD23885F620076F973 /* Sound */,
 				B50ADC432384C704009BBC25 /* User */,
 				9B3D55222384805500A76632 /* images */,
 				B5FFD073238310CE000F4793 /* Owner */,
@@ -228,6 +239,7 @@
 				B535129B2381FA1B00E33245 /* Assets.xcassets in Resources */,
 				9B19F1C42386239500BF2DC9 /* background.jpg in Resources */,
 				9B080C2623860E2400930343 /* logo.jpeg in Resources */,
+				9B97DAC3238862C90076F973 /* happykids.mp3 in Resources */,
 				B53512992381FA1B00E33245 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

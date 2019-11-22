@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
 
@@ -31,7 +31,8 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var imagePicker = UIImagePickerController()
     
     var isRegOwner = true
-//    var isLoginOwner = true
+    var audioplayer: AVAudioPlayer!
+
     var image_data: UIImage?
     var Uname: String?
     var name: String?
@@ -291,6 +292,9 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
            }
             
         }
+        let soundURL = Bundle.main.url(forResource: "happykids", withExtension: "mp3")
+        audioplayer = try! AVAudioPlayer(contentsOf: soundURL!)
+        audioplayer.play()
    }
        
        
