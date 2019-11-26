@@ -578,7 +578,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FK-pd-XH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290" y="-386"/>
+            <point key="canvasLocation" x="2345" y="-860"/>
         </scene>
         <!--View OrderTVC-->
         <scene sceneID="3aN-DF-PgU">
@@ -607,6 +607,13 @@
                     <toolbarItems>
                         <barButtonItem title="Total: " id="XkW-2z-m1d">
                             <color key="tintColor" red="0.52750086784362793" green="0.11706831306219101" blue="0.083012066781520844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="quz-3M-isM"/>
+                        <barButtonItem title="Pay Here.." id="bPR-SC-BRm">
+                            <color key="tintColor" red="0.45516735406091369" green="0.074076144086395027" blue="0.066684959409716513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="btnPayment:" destination="Qpj-PZ-do8" id="rUO-5M-Pdu"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="9JY-RG-Gk8"/>
@@ -688,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQj-VT-RuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141.5999999999999" y="-160.56971514242881"/>
+            <point key="canvasLocation" x="3142" y="-82"/>
         </scene>
         <!--Menu-->
         <scene sceneID="2Wm-sp-kUz">
@@ -752,7 +759,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTo-b5-IzK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="367"/>
+            <point key="canvasLocation" x="1540" y="542"/>
         </scene>
         <!--Add MenuVC-->
         <scene sceneID="law-Mw-sZY">
@@ -849,7 +856,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ia5-BK-Su7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2270" y="1132"/>
+            <point key="canvasLocation" x="2345" y="1305"/>
         </scene>
         <!--Edit MenuVC-->
         <scene sceneID="ex2-ag-wuO">
@@ -913,7 +920,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTU-mc-TBJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269.5999999999999" y="367.46626686656674"/>
+            <point key="canvasLocation" x="2345" y="542"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XcW-cR-uSu">
@@ -959,7 +966,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="SignIn/ Sign Up"/>
+                                <state key="normal" title="Sign In/ Sign Up"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="g8j-cn-Do3"/>
                                 </connections>

@@ -13,6 +13,7 @@ class ResDetailsTVC: UITableViewController {
     
     var resIndex = -1
     var selectedIndex = [CartItems]()
+    var cartArray = [CartItems]()
     var quantity = 1
     
     override func viewDidLoad() {
@@ -64,11 +65,11 @@ class ResDetailsTVC: UITableViewController {
         let resName = Restaurant.restaurants[resIndex].restName
         let name = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].itemName
         let price = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].price
-        let desc = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].description
+//        let desc = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].description
         let qty = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].quantity
         
 //        let item = Items(itemName: name, price: price, description: desc, quantity: qty)
-        let item = CartItems(resName: resName, itemName: name, price: price, description: desc, quantity: qty)
+        let item = CartItems(resName: resName, itemName: name, price: price, quantity: qty)
         selectedIndex.append(item)
         
         Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].quantity = 1
@@ -101,29 +102,50 @@ class ResDetailsTVC: UITableViewController {
              }
         }
         
+         
 
         
         var alreadyExists = false
         
         for index in selectedIndex.indices{
             
-            if !Customer.customers.isEmpty{
-                for cIndex in Customer.customers[Customer.curCustomerIndex].cartItems.indices{
-                    if Customer.customers[Customer.curCustomerIndex].cartItems[cIndex].itemName == selectedIndex[index].itemName{
+            if !cartArray.isEmpty{
+                for cIndex in cartArray.indices{
+                    if cartArray[cIndex].itemName == selectedIndex[index].itemName{
                         okAlert(title: "Already in cart", message: "The item you have selected is already in cart.")
                         alreadyExists = true
                         break
                     }
-                    
                 }
             }
         }
-            
-            if !alreadyExists{
-                for index in selectedIndex.indices{
-                Customer.customers[Customer.curCustomerIndex].cartItems.append(selectedIndex[index])
-                }
+        
+        if !alreadyExists{
+            for index in selectedIndex.indices{
+                cartArray.append(selectedIndex[index])
             }
+            okAlert(title: "Success!", message: "Items added to cart successfully.")
+        }
+        
+//        for index in selectedIndex.indices{
+//
+//            if !Customer.customers.isEmpty{
+//                for cIndex in Customer.customers[Customer.curCustomerIndex].cartItems.indices{
+//                    if Customer.customers[Customer.curCustomerIndex].cartItems[cIndex].itemName == selectedIndex[index].itemName{
+//                        okAlert(title: "Already in cart", message: "The item you have selected is already in cart.")
+//                        alreadyExists = true
+//                        break
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//        if !alreadyExists{
+//            for index in selectedIndex.indices{
+//            Customer.customers[Customer.curCustomerIndex].cartItems.append(selectedIndex[index])
+//            }
+//        }
 
         selectedIndex = []
         
@@ -134,6 +156,7 @@ class ResDetailsTVC: UITableViewController {
     func okAlert(title: String, message: String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        okAction.setValue(UIColor.brown, forKey: "titleTextColor")
         
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
@@ -192,6 +215,12 @@ class ResDetailsTVC: UITableViewController {
                     destItem.resIndex = resIndex
                 }
             }
+        } else if let destOrders = segue.destination as? ViewOrderTVC{
+            destOrders.delegateResDetails = self
+            for index in cartArray.indices{
+                destOrders.cart.append(cartArray[index])
+            }
+            
         }
     }
     

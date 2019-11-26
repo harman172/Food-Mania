@@ -455,4 +455,5 @@ struct Restaurant{
     
     static var restaurants = [Restaurant]()
     
+    
 }

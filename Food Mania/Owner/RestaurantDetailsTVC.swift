@@ -175,7 +175,7 @@ class RestaurantDetailsTVC: UITableViewController {
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
             _ = self.navigationController?.popViewController(animated: true)
         }
-        yesAction.setValue(UIColor.red, forKey: "titleTextColor")
+        yesAction.setValue(UIColor.brown, forKey: "titleTextColor")
         
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         noAction.setValue(UIColor.black, forKey: "titleTextColor")

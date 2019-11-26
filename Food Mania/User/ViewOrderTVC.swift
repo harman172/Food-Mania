@@ -12,7 +12,8 @@ class ViewOrderTVC: UITableViewController {
 
     
     @IBOutlet weak var lblTotal: UIBarButtonItem!
-    
+    var cart = [CartItems]()
+    var delegateResDetails: ResDetailsTVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,21 @@ class ViewOrderTVC: UITableViewController {
         let nib = UINib(nibName: "CartCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "order cell")
         
+        print("-----View order-----\(cart)")
+        
         var total = 0.0
-        for index in Customer.customers[Customer.curCustomerIndex].cartItems.indices{
-            
-            let price = Customer.customers[Customer.curCustomerIndex].cartItems[index].price * Double(Customer.customers[Customer.curCustomerIndex].cartItems[index].quantity)
-            
+//        for index in Customer.customers[Customer.curCustomerIndex].cartItems.indices{
+//
+//            let price = Customer.customers[Customer.curCustomerIndex].cartItems[index].price * Double(Customer.customers[Customer.curCustomerIndex].cartItems[index].quantity)
+//
+//            total += price
+//        }
+        
+        for index in cart.indices{
+            let price = cart[index].price * Double(cart[index].quantity)
             total += price
         }
+        
         
         lblTotal.title = "Total: $\(total)"
 
@@ -49,26 +58,38 @@ class ViewOrderTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Customer.customers[Customer.curCustomerIndex].cartItems.count
+//        return Customer.customers[Customer.curCustomerIndex].cartItems.count
+        return cart.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard !Customer.customers[Customer.curCustomerIndex].cartItems.isEmpty else {
+//        guard !Customer.customers[Customer.curCustomerIndex].cartItems.isEmpty else {
+//            return UITableViewCell()
+//        }
+//
+//        let name = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].itemName
+//        let quantity = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].quantity
+//        let price = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].price
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "order cell") as! CartCell
+//        cell.setName(name: name, quantity: quantity, price: price)
+//        return cell
+
+        // Configure the cell...
+        
+        guard !cart.isEmpty else {
             return UITableViewCell()
         }
-        
-        let name = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].itemName
-        let quantity = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].quantity
-        let price = Customer.customers[Customer.curCustomerIndex].cartItems[indexPath.row].price
+
+        let name = cart[indexPath.row].itemName
+        let quantity = cart[indexPath.row].quantity
+        let price = cart[indexPath.row].price
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "order cell") as! CartCell
         cell.setName(name: name, quantity: quantity, price: price)
         return cell
-
-        // Configure the cell...
-
     }
     
     
@@ -84,7 +105,9 @@ class ViewOrderTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            Customer.customers[Customer.curCustomerIndex].cartItems.remove(at: indexPath.row)
+//            Customer.customers[Customer.curCustomerIndex].cartItems.remove(at: indexPath.row)
+            
+            cart.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -114,5 +137,29 @@ class ViewOrderTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func okAlert(title: String, message: String){
+       let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+       let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        okAction.setValue(UIColor.brown, forKey: "titleTextColor")
+       
+       alertController.addAction(okAction)
+       self.present(alertController, animated: true, completion: nil)
+        
+    }
 
+    @IBAction func btnPayment(_ sender: UIBarButtonItem) {
+        for index in cart.indices{
+            Customer.customers[Customer.curCustomerIndex].cartItems.append(cart[index])
+        }
+        cart = []
+        okAlert(title: "Success!", message: "Payment done successfully.")
+        print("-----after payment cart----\(Customer.customers[Customer.curCustomerIndex].cartItems)")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegateResDetails?.cartArray = []
+        for index in cart.indices{
+            delegateResDetails?.cartArray.append(cart[index])
+        }
+    }
 }

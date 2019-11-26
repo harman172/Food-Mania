@@ -12,6 +12,5 @@ struct CartItems{
     var resName: String
     var itemName: String
     var price: Double
-    var description: String
     var quantity = 1
 }
