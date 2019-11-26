@@ -17,6 +17,7 @@ class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.hidesBackButton = true
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,6 +53,26 @@ class UserMainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
             
         }
+    }
+    
+    
+    @IBAction func btnLogout(_ sender: UIBarButtonItem) {
+        
+        let alertController = UIAlertController(title: "Sign Out!", message: "Do you really want to sign out?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        yesAction.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        noAction.setValue(UIColor.black, forKey: "titleTextColor")
+        
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 

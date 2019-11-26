@@ -12,7 +12,7 @@ class ResDetailsTVC: UITableViewController {
 
     
     var resIndex = -1
-    var selectedIndex = [Items]()
+    var selectedIndex = [CartItems]()
     var quantity = 1
     
     override func viewDidLoad() {
@@ -55,22 +55,23 @@ class ResDetailsTVC: UITableViewController {
             
         }
 
-        
-
         return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
 //         selectedIndex.append(indexPath.row)
+        let resName = Restaurant.restaurants[resIndex].restName
         let name = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].itemName
         let price = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].price
         let desc = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].description
         let qty = Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].quantity
         
-        let item = Items(itemName: name, price: price, description: desc, quantity: qty)
-        
+//        let item = Items(itemName: name, price: price, description: desc, quantity: qty)
+        let item = CartItems(resName: resName, itemName: name, price: price, description: desc, quantity: qty)
         selectedIndex.append(item)
+        
+        Restaurant.restaurants[resIndex].menu[indexPath.section].item[indexPath.row].quantity = 1
         
          
      }
@@ -193,6 +194,8 @@ class ResDetailsTVC: UITableViewController {
             }
         }
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()

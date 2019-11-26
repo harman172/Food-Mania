@@ -9,8 +9,9 @@
 import Foundation
 
 struct CartItems{
-    
+    var resName: String
     var itemName: String
     var price: Double
-    var quantity: Int
+    var description: String
+    var quantity = 1
 }

@@ -12,7 +12,8 @@ class EditMenuVC: UIViewController {
 
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtPrice: UITextField!
-    @IBOutlet weak var txtDesc: UITextView!
+    @IBOutlet weak var txtDesc: UITextField!
+    
     
     var itemName: String?
     var price: String?
@@ -24,15 +25,19 @@ class EditMenuVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.setToolbarHidden(true, animated: false)
         
+        print(desc!)
         txtName.text = itemName!
         txtPrice.text = price!
         txtDesc.text = desc!
+        
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         delegateRestDetails?.updateItem(name: txtName.text!, price: txtPrice.text!, desc: txtDesc.text!)
+        self.navigationController?.setToolbarHidden(false, animated: false)
     }
 
     @IBAction func viewTextFieldEditing(_ sender: UITextField) {
@@ -52,5 +57,6 @@ class EditMenuVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+   
 
 }

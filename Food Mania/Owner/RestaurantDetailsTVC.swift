@@ -26,8 +26,10 @@ class RestaurantDetailsTVC: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem
-       
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.hidesBackButton = true
+        
         for index in Restaurant.restaurants.indices{
             if Restaurant.restaurants[index].userName == resUsername{
                 resIndex = index
@@ -53,7 +55,7 @@ class RestaurantDetailsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        guard Restaurant.restaurants[resIndex!].menu != nil else{
+        guard !Restaurant.restaurants[resIndex!].menu.isEmpty else{
             return 0
         }
         
@@ -164,6 +166,26 @@ class RestaurantDetailsTVC: UITableViewController {
         let indexPath = IndexPath(row: curRowIndex, section: curSectionIndex)
         tableView.reloadRows(at: [indexPath], with: .none)
     }
+    
+    
+    @IBAction func btnLogout(_ sender: UIBarButtonItem) {
+
+        let alertController = UIAlertController(title: "Sign Out!", message: "Do you really want to sign out?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        yesAction.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        noAction.setValue(UIColor.black, forKey: "titleTextColor")
+        
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()

@@ -21,8 +21,8 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
+//        // Do any additional setup after loading the view.
+//        self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationController?.setToolbarHidden(true, animated: false)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -37,9 +37,13 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
             }
         }
         
-        pickerView.selectRow(0, inComponent: 0, animated: true)
-        
-       
+        pickerView.selectRow(1, inComponent: 0, animated: true)
+    }
+    
+    @objc func viewTapped(){
+       for index in textViews.indices{
+           textViews[index].resignFirstResponder()
+       }
     }
     
     @IBAction func itemViewTextEditing(_ sender: UITextField) {
@@ -53,11 +57,7 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     @IBAction func desViewTextEditing(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
-    @objc func viewTapped(){
-        for index in textViews.indices{
-            textViews[index].resignFirstResponder()
-        }
-    }
+   
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -78,8 +78,12 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     }
 
     @IBAction func btnSave(_ sender: UIButton) {
-//        var sectionExists = false
         
+        guard menuIndex >= 0 else {
+            okAlert(title: "Category unselected!", message: "Please choose a category first for food item.")
+            return
+        }
+//        var sectionExists = false
 //        let section = textViews[0].text!
         let name = textViews[0].text!
         let price = Double(textViews[1].text!) ?? 0.0
@@ -115,13 +119,22 @@ class AddMenuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
 //            }
 //        }
         
-        print("&&&&& \(menuIndex), \(resIndex)")
         Restaurant.restaurants[resIndex].menu[menuIndex].item.append(items)
         
         print(Restaurant.restaurants[resIndex].menu)
         
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    func okAlert(title: String, message: String){
+       let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+       let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+       
+       alertController.addAction(okAction)
+       self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setToolbarHidden(false, animated: false)
     }

@@ -31,7 +31,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     var imagePicker = UIImagePickerController()
     
     var isRegOwner = true
-    var audioplayer: AVAudioPlayer!
+//    var audioplayer: AVAudioPlayer!
 
     var image_data: UIImage?
     var Uname: String?
@@ -45,16 +45,10 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginRegisterVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
-        //self.view.backgroundColor?.withAlphaComponent(0.08)
-        
-        
         pickerView.selectRow(0, inComponent: 0, animated: true)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
-        
-
     }
     
     @objc func viewTapped(){
@@ -140,12 +134,10 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                registerOwnerSV.isHidden = false
                registerUserSV.isHidden = true
                isRegOwner = true
-//               isLoginOwner = true
            }else if row == 1{
                registerOwnerSV.isHidden = true
                registerUserSV.isHidden = false
                isRegOwner = false
-//               isLoginOwner = false
            }
         } else{
             loginUser.isHidden = false
@@ -209,6 +201,8 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     @IBAction func btnRegister(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+        
         if loginUser.isHidden{
             return
         }
@@ -249,7 +243,6 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
                 txtOwner[index].text = ""
             }
             ivRestaurant.image = UIImage(systemName: "person")
-//                ivRestaurant.image = UIImage(named: inputs[4])
                 
            } else{
                okAlert(title: "Invalid username", message: "This username is already taken.\n Try another one.")
@@ -292,14 +285,14 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
            }
             
         }
-        let soundURL = Bundle.main.url(forResource: "happykids", withExtension: "mp3")
-        audioplayer = try! AVAudioPlayer(contentsOf: soundURL!)
-        audioplayer.play()
-   }
-       
-       
-    @IBAction func btnLogIn(_ sender: UIButton) {
+//        let soundURL = Bundle.main.url(forResource: "happykids", withExtension: "mp3")
+//        audioplayer = try! AVAudioPlayer(contentsOf: soundURL!)
+//        audioplayer.play()
         
+    }
+    
+    @IBAction func btnLogIn(_ sender: UIButton) {
+        self.view.endEditing(true)
         
         if loginOwner.isHidden{
             return
@@ -354,6 +347,8 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     @IBAction func btnLoginUser(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+        
         if loginUser.isHidden{
             return
         }
@@ -402,20 +397,19 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
  
     }
     
-    
-   func okAlert(title: String, message: String){
+    func okAlert(title: String, message: String){
        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
        
        alertController.addAction(okAction)
        self.present(alertController, animated: true, completion: nil)
-   }
+        
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destRestDetails = segue.destination as? RestaurantDetailsTVC{
-           
             destRestDetails.resUsername = Uname!
             
         }
@@ -430,6 +424,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             self.view.frame.origin.y -= (keyboardFrame.height - 100)
         }
     }
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0{
             self.view.frame.origin.y = 0
@@ -446,7 +441,7 @@ class LoginRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     
-   }
+}
 
 
 
