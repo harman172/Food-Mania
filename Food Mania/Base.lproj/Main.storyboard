@@ -504,6 +504,7 @@
                                 <action selector="btnLogout:" destination="KOg-Nc-Zd9" id="CWv-qB-dO5"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="dFG-XM-IDB"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Restaurants" id="dLw-oX-8wv"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -649,16 +650,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-mn-svO">
-                                <rect key="frame" x="16" y="535" width="55" height="30"/>
+                                <rect key="frame" x="262" y="568" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <action selector="btnIncrement:" destination="okB-nB-Lic" eventType="touchUpInside" id="VBo-AA-1mu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VD8-AX-SL3">
-                                <rect key="frame" x="79" y="535" width="55" height="30"/>
+                                <rect key="frame" x="304" y="569" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="-"/>
                                 <connections>
                                     <action selector="btnDecrement:" destination="okB-nB-Lic" eventType="touchUpInside" id="8br-LG-W4k"/>
@@ -672,9 +675,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omX-8g-5rb">
-                                <rect key="frame" x="99" y="573" width="35" height="21"/>
+                                <rect key="frame" x="99" y="571" width="44" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.52750086780000005" green="0.1170683131" blue="0.083012066780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -695,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQj-VT-RuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="-82"/>
+            <point key="canvasLocation" x="3141.5999999999999" y="-82.3088455772114"/>
         </scene>
         <!--Menu-->
         <scene sceneID="2Wm-sp-kUz">
