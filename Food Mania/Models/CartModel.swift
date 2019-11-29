@@ -13,4 +13,6 @@ struct CartItems{
     var itemName: String
     var price: Double
     var quantity = 1
+    var time = ""
+    var date = ""
 }

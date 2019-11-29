@@ -148,11 +148,26 @@ class ViewOrderTVC: UITableViewController {
     }
 
     @IBAction func btnPayment(_ sender: UIBarButtonItem) {
+        let date = Date()
+        let format = DateFormatter()
+        let time = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        time.dateFormat = "HH:mm:ss"
+        let formattedDate = format.string(from: date)
+        let formattedTime = time.string(from: date)
+        
         for index in cart.indices{
+            cart[index].date = formattedDate
+            cart[index].time = formattedTime
+            
             Customer.customers[Customer.curCustomerIndex].cartItems.append(cart[index])
         }
         cart = []
         okAlert(title: "Success!", message: "Payment done successfully.")
+        
+        
+        print("---------pay here----\(formattedDate), \(formattedTime)")
+        
         print("-----after payment cart----\(Customer.customers[Customer.curCustomerIndex].cartItems)")
     }
     
